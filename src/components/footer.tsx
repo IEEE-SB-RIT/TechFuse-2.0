@@ -19,8 +19,9 @@ const pageData: PageData[] = [
 function Footer() {
     return (
         <div className="w-full flex flex-col justify-center items-center
-    bg-white/20 backdrop-blur-md border border-white/30
-    rounded-t-2xl shadow-lg">
+bg-tf-radial-pattern border border-white/10
+rounded-t-2xl shadow-lg text-white">
+
             <div className="flex justify-between p-10 w-full">
                 <div className="w-1/3 pr-6 gap-2">
                     <SubHeading title="TechFuse-2.0"/>
