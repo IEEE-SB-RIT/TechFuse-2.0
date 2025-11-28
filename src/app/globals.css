@@ -1,26 +1,29 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Core Colors (Extracted from TechFuse.jpg) */
+  --color-tf-bg-primary: #0C143B;   /* Dark Navy/Indigo Background */
+  --color-tf-bg-secondary: #162A6B; /* Subtle Dark Blue Pattern/Card Background */
+  --color-tf-accent: #00FFFF;       /* Electric Cyan/Teal Accent */
+  --color-tf-text-light: #FFFFFF;    /* Pure White Text/Headings */
+
+  /* Map Tailwind defaults to our custom variables for easy use */
+  --background-primary: var(--color-tf-bg-primary);
+  --accent-color: var(--color-tf-accent);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+.bg-tf-primary {
+  background-color: var(--color-tf-bg-primary);
 }
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.text-tf-accent {
+  color: var(--color-tf-accent);
 }
+.bg-tf-radial-pattern {
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: radial-gradient(
+          at 50% 100%, /* Start from the bottom center */
+          var(--color-tf-bg-secondary) 10%, /* Start with the subtle blue */
+          var(--color-tf-bg-primary) 70%   /* Fade to the main background color */
+  ),
+  var(--color-tf-bg-primary);
 }
