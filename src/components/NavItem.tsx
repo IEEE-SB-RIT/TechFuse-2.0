@@ -25,7 +25,7 @@ const NavItem = ({ text, path, onClick, isMobile }: NavItemProps) => {
         href={path}
         onClick={handleClick}
         className={`font-josefin px-4 py-2 text-2xl font-medium transition-colors ${
-          isActive ? "text-white" : "text-zinc-400 hover:text-[var(--primary)]"
+          isActive ? "text-white" : "text-zinc-400 hover:text-[#66FFFF] "
         }`}
       >
         {text}
