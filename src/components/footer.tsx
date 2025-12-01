@@ -29,7 +29,7 @@ rounded-t-2xl shadow-lg text-white backdrop-blur-xl w-full rounded-t-3xl px-6 py
                   width="30"
                   height="30"
                   viewBox="0 0 24 24"
-                  className="hover:scale-110 hover:text-amber-400 transition-transform duration-200"
+                  className="hover:scale-110 hover:text-[#66FFFF]  transition-transform duration-200"
                 >
                   <path
                     fill="currentColor"
@@ -51,7 +51,7 @@ rounded-t-2xl shadow-lg text-white backdrop-blur-xl w-full rounded-t-3xl px-6 py
                   width="24"
                   height="24"
                   viewBox="0 0 20 20"
-                  className="hover:scale-110 hover:text-amber-400 transition-transform duration-200"
+                  className="hover:scale-110 hover:text-[#66FFFF]  transition-transform duration-200"
                 >
                   <path
                     fill="currentColor"
@@ -73,7 +73,7 @@ rounded-t-2xl shadow-lg text-white backdrop-blur-xl w-full rounded-t-3xl px-6 py
                 strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                className="hover:scale-110 hover:text-amber-400 transition-transform duration-200 cursor-pointer"
+                className="hover:scale-110 hover:text-[#66FFFF]  transition-transform duration-200 cursor-pointer"
                 onClick={handleMail}
               >
                 <path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7" />
@@ -103,7 +103,7 @@ rounded-t-2xl shadow-lg text-white backdrop-blur-xl w-full rounded-t-3xl px-6 py
                 <p className="mr-1 font-bold">R Harikrishnan :</p>
                 <a
                   href="tel:+919656990468"
-                  className="hover:scale-110 hover:text-amber-400 transition-transform duration-200"
+                  className="hover:scale-110 hover:text-[#66FFFF]  transition-transform duration-200"
                 >
                   +91 96569 90468
                 </a>
@@ -113,7 +113,7 @@ rounded-t-2xl shadow-lg text-white backdrop-blur-xl w-full rounded-t-3xl px-6 py
                 <p className="mr-1 font-bold">Nanditha A :</p>
                 <a
                   href="tel:+919061931671"
-                  className="hover:scale-110 hover:text-amber-400 transition-transform duration-200"
+                  className="hover:scale-110 hover:text-[#66FFFF]  transition-transform duration-200"
                 >
                   +91 90619 31671
                 </a>
@@ -131,7 +131,7 @@ rounded-t-2xl shadow-lg text-white backdrop-blur-xl w-full rounded-t-3xl px-6 py
                 target="_blank"
                 rel="noopener noreferrer"
                 href="https://devcard.link/hP9V2t"
-                className="flex items-center gap-2 hover:scale-105 hover:text-amber-400 transition-transform duration-200"
+                className="flex items-center gap-2 hover:scale-105 hover:text-[#66FFFF]  transition-transform duration-200"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -155,7 +155,7 @@ rounded-t-2xl shadow-lg text-white backdrop-blur-xl w-full rounded-t-3xl px-6 py
                 target="_blank"
                 rel="noopener noreferrer"
                 href="https://devcard.link/OFNHWZ"
-                className="flex items-center gap-2 hover:scale-105 hover:text-amber-400 transition-transform duration-200"
+                className="flex items-center gap-2 hover:scale-105 hover:text-[#66FFFF]  transition-transform duration-200"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -184,7 +184,7 @@ rounded-t-2xl shadow-lg text-white backdrop-blur-xl w-full rounded-t-3xl px-6 py
           <a
             href="https://maps.app.goo.gl/M6Da5HZXwG45Wru5A"
             target="_blank"
-            className="font-quicksand hover:scale-105 hover:text-amber-400 transition-transform duration-200"
+            className="font-quicksand hover:scale-105 hover:text-[#66FFFF]  transition-transform duration-200"
           >
             IEEE RAS SBC RIT, <br />
             Rajiv Gandhi Institute of Technology, <br />
