@@ -9,7 +9,8 @@ export default function Footer() {
   const handleMail = () => setMailStatus((prev) => !prev);
 
   return (
-    <footer className="bg-gradient-to-t from-black to-transparent border-[1px] text-zinc-300 border-gray-500 backdrop-blur-xl w-full rounded-t-3xl px-6 py-10">
+    <footer className="bg-tf-radial-pattern border border-white/10
+rounded-t-2xl shadow-lg text-white backdrop-blur-xl w-full rounded-t-3xl px-6 py-10">
       <div className="flex flex-col gap-8 md:flex-row justify-evenly text-center md:text-left">
         {/* --- Stay Updated --- */}
         <div>
