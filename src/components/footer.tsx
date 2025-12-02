@@ -100,22 +100,22 @@ rounded-t-2xl shadow-lg text-white backdrop-blur-xl w-full rounded-t-3xl px-6 py
           <div className="font-quicksand space-y-2 text-md flex flex-col items-center">
             <div className="flex flex-col items-start justify-start gap-2">
               <div className="flex flex-row items-center">
-                <p className="mr-1 font-bold">R Harikrishnan :</p>
+                <p className="mr-1 font-bold">Bijila Anna Thomas :</p>
                 <a
-                  href="tel:+919656990468"
+                  href="tel:+916238464655"
                   className="hover:scale-110 hover:text-[#66FFFF]  transition-transform duration-200"
                 >
-                  +91 96569 90468
+                  +91 62384 64655
                 </a>
               </div>
 
               <div className="flex flex-row items-start">
-                <p className="mr-1 font-bold">Nanditha A :</p>
+                <p className="mr-1 font-bold">R Harikrishnan :</p>
                 <a
-                  href="tel:+919061931671"
-                  className="hover:scale-110 hover:text-[#66FFFF]  transition-transform duration-200"
+                    href="tel:+919656990468"
+                    className="hover:scale-110 hover:text-[#66FFFF]  transition-transform duration-200"
                 >
-                  +91 90619 31671
+                  +91 96569 90468
                 </a>
               </div>
             </div>
@@ -124,10 +124,10 @@ rounded-t-2xl shadow-lg text-white backdrop-blur-xl w-full rounded-t-3xl px-6 py
 
         {/* --- Built By --- */}
         <div>
-          <FooterHeading text="Built by" />
+          <FooterHeading text="Built by"/>
           <div className="font-quicksand flex flex-col items-center text-md space-y-2">
             <div className="flex flex-col gap-2">
-              <a
+            <a
                 target="_blank"
                 rel="noopener noreferrer"
                 href="https://devcard.link/hP9V2t"
