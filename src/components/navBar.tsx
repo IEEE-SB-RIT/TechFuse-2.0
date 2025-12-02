@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useCallback, useRef } from "react";
 import NavItem from "@/components/NavItem";
+import {log} from "next/dist/server/typescript/utils";
 
 const Navbar = () => {
   const [isMobile, setIsMobile] = useState(true);
@@ -44,6 +45,9 @@ const Navbar = () => {
       if (navRef.current && !navRef.current.contains(event.target as Node)) {
         closeMenu();
       }
+      else{
+        console.log("inside click")
+      }
     };
     if (isMobile && isOpen) {
       document.addEventListener("mousedown", handleOutsideClick);
@@ -52,7 +56,6 @@ const Navbar = () => {
       document.removeEventListener("mousedown", handleOutsideClick);
     };
   }, [isMobile, isOpen, closeMenu]);
-
   return (
     <>
       {isMobile && isOpen && (
@@ -61,7 +64,11 @@ const Navbar = () => {
       {isMobile && (
         <button
           className="fixed z-[80] top-4 left-4 w-12 h-12 flex items-center justify-center text-[#66FFFF]"
-          onClick={() => setIsOpen(!isOpen)}
+          onClick={()=>{
+            if(!isOpen){
+              setIsOpen(true);
+            }
+          }}
           aria-label={isOpen ? "Close menu" : "Open menu"}
         >
           <span
@@ -88,8 +95,11 @@ const Navbar = () => {
           <span
             className={`absolute flex items-center justify-center transition-all duration-300 ease-in-out ${
               isOpen ? "opacity-70 scale-90" : "opacity-0 scale-100"
-            }`}
-          >
+            }`} onClick={()=>{
+              if(isOpen){
+                setIsOpen(false);
+              }
+          }} >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="36" // Same size as hamburger
