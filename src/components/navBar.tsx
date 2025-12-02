@@ -60,7 +60,7 @@ const Navbar = () => {
       )}
       {isMobile && (
         <button
-          className="fixed z-[80] top-4 left-4 w-12 h-12 flex items-center justify-center"
+          className="fixed z-[80] top-4 left-4 w-12 h-12 flex items-center justify-center text-[#66FFFF]"
           onClick={() => setIsOpen(!isOpen)}
           aria-label={isOpen ? "Close menu" : "Open menu"}
         >
@@ -112,7 +112,7 @@ const Navbar = () => {
             ? `fixed h-full w-[80%] -translate-x-full flex-col justify-between items-start transition-transform duration-300 ease-in-out ${
                 isOpen ? "translate-x-0" : "-translate-x-full"
               }`
-            : "sticky h-32 w-full flex-row justify-between items-center"
+            : "sticky h-20 w-full flex-row justify-between items-center"
         }`}
       >
         {/* <Link
@@ -123,11 +123,11 @@ const Navbar = () => {
 					<img src={logo} alt="Event logo" className="w-40 ml-10" />
 				</Link> */}
         <div
-          className={`w-full h-full flex ${
+          className={`w-full h-[full]  flex ${
             isMobile
-              ? "flex-col items-start justify-center"
-              : "flex-row items-center  justify-end"
-          }  p-5 gap-10`}
+              ? "flex-col items-center justify-center h-full gap-8 m-2"
+              : "flex-row items-center  justify-end gap-8 p-2"
+          }   `}
         >
           <NavItem
             text="Home"
