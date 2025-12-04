@@ -1,172 +1,141 @@
 "use client";
 
-import { useState, useEffect, useCallback, useRef } from "react";
-import NavItem from "@/components/NavItem";
-import {log} from "next/dist/server/typescript/utils";
+import { useState, useEffect } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+
+const navLinks = [
+  { name: "Home", href: "/" },
+  { name: "About", href: "/about" },
+  { name: "Gallery", href: "/gallery" },
+  { name: "Events", href: "/events" },
+];
 
 const Navbar = () => {
-  const [isMobile, setIsMobile] = useState(true);
   const [isOpen, setIsOpen] = useState(false);
-  const initialized = useRef(false);
-  const navRef = useRef<HTMLDivElement | null>(null);
+  const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
 
-  const closeMenu = useCallback(() => {
-    setIsOpen(false);
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 50);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   useEffect(() => {
-    if (isMobile && isOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "unset";
-    }
+    document.body.style.overflow = isOpen ? "hidden" : "unset";
+  }, [isOpen]);
 
-    return () => {
-      document.body.style.overflow = "unset";
-    };
-  }, [isMobile, isOpen]);
-
-  useEffect(() => {
-    if (!initialized.current) {
-      setIsMobile(window.innerWidth <= 640);
-      initialized.current = true;
-    }
-
-    const checkScreenSize = () => {
-      setIsMobile(window.innerWidth <= 640);
-      if (window.innerWidth > 640) closeMenu();
-    };
-
-    window.addEventListener("resize", checkScreenSize);
-    return () => window.removeEventListener("resize", checkScreenSize);
-  }, [closeMenu]);
-  useEffect(() => {
-    const handleOutsideClick = (event: MouseEvent) => {
-      if (navRef.current && !navRef.current.contains(event.target as Node)) {
-        closeMenu();
-      }
-      else{
-        console.log("inside click")
-      }
-    };
-    if (isMobile && isOpen) {
-      document.addEventListener("mousedown", handleOutsideClick);
-    }
-    return () => {
-      document.removeEventListener("mousedown", handleOutsideClick);
-    };
-  }, [isMobile, isOpen, closeMenu]);
   return (
-    <>
-      {isMobile && isOpen && (
-        <div onClick={closeMenu} onTouchStart={closeMenu} />
-      )}
-      {isMobile && (
-        <button
-          className="fixed z-[80] top-4 left-4 w-12 h-12 flex items-center justify-center text-[#66FFFF]"
-          onClick={()=>{
-            if(!isOpen){
-              setIsOpen(true);
-            }
-          }}
-          aria-label={isOpen ? "Close menu" : "Open menu"}
+    <header
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ease-in-out ${
+        scrolled
+          ? "bg-black/80 backdrop-blur-xl border-b border-white/5 py-3"
+          : "bg-transparent py-6"
+      }`}
+    >
+      <div className="container mx-auto px-6 md:px-12 flex items-center justify-between">
+        {/* --- LOGO --- */}
+        <Link
+          href="/"
+          onClick={() => setIsOpen(false)}
+          className="z-50 text-2xl font-bold tracking-tighter text-white uppercase group"
         >
-          <span
-            className={`absolute flex items-center justify-center transition-opacity duration-300 ease-in-out ${
-              isOpen ? "opacity-0 scale-90" : "opacity-70 scale-100"
-            }`}
+          <img src="/techfuselogo.webp" className="w-40" alt="" />
+        </Link>
+
+        {/* --- DESKTOP NAV --- */}
+        <nav className="hidden md:flex items-center gap-10">
+          {navLinks.map((link) => (
+            <Link
+              key={link.name}
+              href={link.href}
+              className={`relative text-sm font-medium tracking-widest uppercase transition-colors duration-300 hover:text-cyan-400 ${
+                pathname === link.href ? "text-cyan-400" : "text-zinc-400"
+              }`}
+            >
+              {link.name}
+            </Link>
+          ))}
+          <Link
+            href="/register"
+            className="px-6 py-2 bg-white text-black text-xs font-bold tracking-widest uppercase rounded-full hover:bg-cyan-400 hover:scale-105 transition-all duration-300 shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:shadow-[0_0_20px_rgba(34,211,238,0.6)]"
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="36"
-              height="36"
-              viewBox="0 0 24 24"
-            >
-              <path
-                fill="none"
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M4 6h16M4 12h16M4 18h7"
-              />
-            </svg>
-          </span>
-          <span
-            className={`absolute flex items-center justify-center transition-all duration-300 ease-in-out ${
-              isOpen ? "opacity-70 scale-90" : "opacity-0 scale-100"
-            }`} onClick={()=>{
-              if(isOpen){
-                setIsOpen(false);
-              }
-          }} >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="36" // Same size as hamburger
-              height="36" // Same size as hamburger
-              viewBox="0 0 24 24"
-            >
-              <path
-                fill="currentColor"
-                d="m12 13.4l-4.9 4.9q-.275.275-.7.275t-.7-.275t-.275-.7t.275-.7l4.9-4.9l-4.9-4.9q-.275-.275-.275-.7t.275-.7t.7-.275t.7.275l4.9 4.9l4.9-4.9q.275-.275.7-.275t.7.275t.275.7t-.275.7L13.4 12l4.9 4.9q.275.275.275.7t-.275.7t-.7.275t-.7-.275z"
-              />
-            </svg>
-          </span>
-        </button>
-      )}
+            Register
+          </Link>
+        </nav>
 
-      <nav
-        ref={navRef}
-        className={`top-0 z-[70] flex bg-gradient-to-b from-black to-transparent backdrop-blur-xs ${
-          isMobile
-            ? `fixed h-full w-[80%] -translate-x-full flex-col justify-between items-start transition-transform duration-300 ease-in-out ${
-                isOpen ? "translate-x-0" : "-translate-x-full"
-              }`
-            : "sticky h-20 w-full flex-row justify-between items-center"
-        }`}
-      >
-        {/* <Link
-					to="/"
-					className="max-sm:translate-y-20"
-					onClick={isMobile ? closeMenu : undefined}
-				>
-					<img src={logo} alt="Event logo" className="w-40 ml-10" />
-				</Link> */}
-        <div
-          className={`w-full h-[full]  flex ${
-            isMobile
-              ? "flex-col items-center justify-center h-full gap-8 m-2"
-              : "flex-row items-center  justify-end gap-8 p-2"
-          }   `}
+        {/* --- PREMIUM HAMBURGER BUTTON --- */}
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          className="md:hidden z-50 relative w-12 h-12 flex items-center justify-center rounded-full bg-white/5 border border-white/10 backdrop-blur-md transition-all duration-300 active:scale-95 hover:bg-white/10 hover:border-white/20"
+          aria-label="Toggle Menu"
         >
-          <NavItem
-            text="Home"
-            path="/"
-            onClick={closeMenu}
-            isMobile={isMobile}
-          />
+          <div className="relative w-6 h-5 flex flex-col justify-between">
+            {/* Top Line */}
+            <span
+              className={`h-[2px] w-full bg-white rounded-full transform transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+                isOpen ? "rotate-45 translate-y-[9px] bg-cyan-400" : ""
+              }`}
+            />
+            {/* Middle Line */}
+            <span
+              className={`h-[2px] w-full bg-white rounded-full transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+                isOpen ? "opacity-0 translate-x-2" : "opacity-100"
+              }`}
+            />
+            {/* Bottom Line */}
+            <span
+              className={`h-[2px] w-full bg-white rounded-full transform transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+                isOpen ? "-rotate-45 -translate-y-[9px] bg-cyan-400" : ""
+              }`}
+            />
+          </div>
+        </button>
 
-          <NavItem
-            text="About"
-            path="/about"
-            onClick={closeMenu}
-            isMobile={isMobile}
-          />
-          <NavItem
-            text="Gallery"
-            path="/gallery"
-            onClick={closeMenu}
-            isMobile={isMobile}
-          />
-          <NavItem
-            text="Events"
-            path="/events"
-            onClick={closeMenu}
-            isMobile={isMobile}
-          />
+        {/* --- MOBILE OVERLAY --- */}
+        <div
+          className={`fixed inset-0 bg-zinc-950 z-40 flex flex-col items-center justify-center gap-10 transition-all duration-500 ease-[cubic-bezier(0.77,0,0.175,1)] ${
+            isOpen
+              ? "opacity-100 translate-y-0"
+              : "opacity-0 -translate-y-full pointer-events-none"
+          }`}
+        >
+          {/* Background decoration */}
+          <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none opacity-20">
+            <div className="absolute top-[-10%] right-[-10%] w-96 h-96 bg-cyan-500/30 rounded-full blur-[100px]" />
+            <div className="absolute bottom-[-10%] left-[-10%] w-96 h-96 bg-purple-500/20 rounded-full blur-[100px]" />
+          </div>
+
+          {navLinks.map((link, index) => (
+            <Link
+              key={link.name}
+              href={link.href}
+              onClick={() => setIsOpen(false)}
+              className={`text-4xl font-light tracking-tight text-white hover:text-cyan-400 transition-all duration-500 ${
+                isOpen
+                  ? "translate-y-0 opacity-100"
+                  : "translate-y-10 opacity-0"
+              }`}
+              style={{ transitionDelay: `${index * 100}ms` }}
+            >
+              {link.name}
+            </Link>
+          ))}
+
+          <Link
+            href="/register"
+            onClick={() => setIsOpen(false)}
+            className={`mt-6 px-12 py-4 bg-gradient-to-r from-cyan-400 to-cyan-500 text-black text-lg font-bold tracking-widest uppercase rounded-full shadow-[0_0_30px_rgba(34,211,238,0.4)] transition-all duration-500 ${
+              isOpen ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
+            }`}
+            style={{ transitionDelay: "400ms" }}
+          >
+            Get Tickets
+          </Link>
         </div>
-      </nav>
-    </>
+      </div>
+    </header>
   );
 };
 
