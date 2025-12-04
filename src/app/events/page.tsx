@@ -7,11 +7,12 @@ function events() {
     return (
         <div className="p-4">
             <Heading text="Events"/>
-
-            {eventData.map((event) => (
-                // @ts-ignore
-                <EventCard key={event.eventId} data={event} />
-            ))}
+            <div className="flex flex-row flex-wrap justify-center gap-5 items-center">
+                {eventData.map((event) => (
+                    // @ts-ignore
+                    <EventCard key={event.eventId} data={event}/>
+                ))}
+            </div>
         </div>
     );
 }
