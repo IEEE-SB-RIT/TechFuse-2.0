@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
-import Image from "next/image";
 import { galleryImages, GalleryItem } from "@/app/lib/gallery-data";
 
 export default function GalleryPage() {

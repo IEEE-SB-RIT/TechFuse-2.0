@@ -1,4 +1,3 @@
-import React from "react";
 import Heading from "@/app/components/heading";
 import EventCard from "@/app/components/eventCard";
 import eventData from "@/data/eventData";

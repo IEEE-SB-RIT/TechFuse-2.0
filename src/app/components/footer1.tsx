@@ -1,6 +1,6 @@
-import SubHeading from "@/components/subHeading";
+import SubHeading from "@/app/components/subHeading";
 import Link from "next/link";
-import FooterComponent from "@/components/footerComponent";
+import FooterComponent from "@/app/components/footerComponent";
 
 interface PageData {
     href: string;
