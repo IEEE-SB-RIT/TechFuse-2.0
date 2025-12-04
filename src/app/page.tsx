@@ -66,7 +66,7 @@ export default function Home() {
 
         {/* THEME TITLE */}
         <h2
-          className={`font-sans text-xl md:text-2xl text-zinc-400 font-light tracking-[0.2em] mb-12 transition-all duration-1000 delay-200 ${
+          className={`font-sans  text-xl md:text-2xl text-zinc-400 font-bold tracking-[0.2em] mb-12 transition-all duration-1000 delay-200 ${
             mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           }`}
         >
@@ -84,7 +84,7 @@ export default function Home() {
         >
           <Link
             href="/register"
-            className="group relative inline-flex items-center justify-center px-10 py-4 font-bold text-white transition-all duration-200 bg-transparent border border-[#66FFFF] hover:bg-[#66FFFF] hover:text-[#0C143B] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#66FFFF]"
+            className="group relative inline-flex items-center justify-center px-7 py-4 font-bold text-white transition-all duration-200 bg-transparent rounded-2xl border border-[#66FFFF] hover:bg-[#66FFFF] hover:text-[#0C143B] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#66FFFF]"
           >
             <span className="absolute inset-0 w-full h-full -mt-1 rounded-lg opacity-30 bg-gradient-to-b from-transparent via-transparent to-gray-700"></span>
             <span className="relative text-sm tracking-[0.2em] uppercase">
