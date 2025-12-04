@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import FooterHeading from "@/components/footerHeading"; // adjust if needed
+import FooterHeading from "./footerHeading"; // adjust if needed
 
 export default function Footer() {
   const [mailStatus, setMailStatus] = useState(false);
@@ -9,8 +9,10 @@ export default function Footer() {
   const handleMail = () => setMailStatus((prev) => !prev);
 
   return (
-    <footer className="bg-tf-radial-pattern border border-white/10
-rounded-t-2xl shadow-lg text-white backdrop-blur-xl w-full rounded-t-3xl px-6 py-10">
+    <footer
+      className="bg-tf-radial-pattern border border-white/10
+rounded-t-2xl shadow-lg text-white backdrop-blur-xl w-full rounded-t-3xl px-6 py-10"
+    >
       <div className="flex flex-col gap-8 md:flex-row justify-evenly text-center md:text-left">
         {/* --- Stay Updated --- */}
         <div>
@@ -112,8 +114,8 @@ rounded-t-2xl shadow-lg text-white backdrop-blur-xl w-full rounded-t-3xl px-6 py
               <div className="flex flex-row items-start">
                 <p className="mr-1 font-bold">R Harikrishnan :</p>
                 <a
-                    href="tel:+919656990468"
-                    className="hover:scale-110 hover:text-[#66FFFF]  transition-transform duration-200"
+                  href="tel:+919656990468"
+                  className="hover:scale-110 hover:text-[#66FFFF]  transition-transform duration-200"
                 >
                   +91 96569 90468
                 </a>
@@ -124,10 +126,10 @@ rounded-t-2xl shadow-lg text-white backdrop-blur-xl w-full rounded-t-3xl px-6 py
 
         {/* --- Built By --- */}
         <div>
-          <FooterHeading text="Built by"/>
+          <FooterHeading text="Built by" />
           <div className="font-quicksand flex flex-col items-center text-md space-y-2">
             <div className="flex flex-col gap-2">
-            <a
+              <a
                 target="_blank"
                 rel="noopener noreferrer"
                 href="https://devcard.link/hP9V2t"
