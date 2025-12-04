@@ -1,9 +1,10 @@
 import React from 'react';
+import Heading from "@/components/heading";
 
 function AboutUs() {
     return (
         <div>
-            About Us
+            <Heading text={"About Us"} />
         </div>
     );
 }

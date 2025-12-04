@@ -1,10 +1,9 @@
 import React from 'react';
+import Heading from "@/components/heading";
 
 function events() {
     return (
-        <div>
-            This is the events page
-        </div>
+        <Heading text={"Events"}/>
     );
 }
 

@@ -1,9 +1,10 @@
 import React from 'react';
+import Heading from "@/components/heading";
 
 function Gallery() {
     return (
         <div>
-            Gallery Page
+            <Heading text={"Gallery"} />
         </div>
     );
 }
