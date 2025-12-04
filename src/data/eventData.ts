@@ -8,7 +8,7 @@ interface EventData {
     form?:string;
     free?:boolean;
     ticket?:string;
-    time:string;
+    time?:string;
     src:string;
 }
 const eventData: EventData[] = [
