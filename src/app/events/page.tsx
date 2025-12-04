@@ -3,7 +3,9 @@ import Heading from "@/components/heading";
 
 function events() {
     return (
-        <Heading text={"Events"}/>
+        <div>
+            <Heading text={"Events"}/>
+        </div>
     );
 }
 
