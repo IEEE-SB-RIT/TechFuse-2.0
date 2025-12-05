@@ -6,12 +6,13 @@ import {Calendar, MapPin, Tag,} from "lucide-react";
 interface EventCardProps {
     // @ts-ignore
     data: EventData,
+    onClick?:()=>void,
 }
 
-export default function EventCard({data}: EventCardProps) {
+export default function EventCard({data,onClick}: EventCardProps) {
     return (
 
-        <div
+        <div onClick={onClick}
             className="flex flex-col bg-gradient-to-br cursor-pointer from-white/10 via-white/10 to-white/10 backdrop-blur-xl  rounded-t-xl rounded-b-xl max-w-sm mx-auto shadow-2xl ">
             <div className="relative rounded-t-xl overflow-hidden">
 
