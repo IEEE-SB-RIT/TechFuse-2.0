@@ -1,6 +1,6 @@
 import Heading from "@/app/components/heading";
 import EventCard from "@/app/components/eventCard";
-import eventData from "@/data/eventData";
+import eventData from "@/app/lib/eventData";
 
 function events() {
   return (

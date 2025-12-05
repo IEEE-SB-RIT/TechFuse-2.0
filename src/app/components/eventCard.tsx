@@ -1,5 +1,5 @@
 import Image from "next/image";
-import EventData from "@/data/eventData";
+import EventData from "@/app/lib/eventData";
 import {Calendar, MapPin, Tag} from "lucide-react";
 
 
