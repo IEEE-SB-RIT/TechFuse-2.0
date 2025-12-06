@@ -1,7 +1,8 @@
-import React from "react";
+import React, {useEffect, useRef} from "react";
 import Image from "next/image";
 import Button from "@/app/components/button";
 import { X } from "lucide-react";
+import * as events from "node:events";
 
 interface Modal {
     src: string;
@@ -15,10 +16,36 @@ interface EventModalProps {
     onClose?: () => void;
 }
 
+
 export default function EventModal({data, onClose}: EventModalProps) {
+
+    const modalRef = useRef<HTMLDivElement | null>(null);
+
+    useEffect(() => {
+        function detectOutsideClick(e: MouseEvent) {
+            if (modalRef.current && !modalRef.current.contains(e.target as Node)) {
+                onClose?.();
+            }
+        }
+
+        function handleEscape(e: KeyboardEvent) {
+            if (e.key === "Escape") {
+                onClose?.();
+            }
+        }
+
+        document.addEventListener("mousedown", detectOutsideClick);
+        document.addEventListener("keydown", handleEscape);
+
+        return () => {
+            document.removeEventListener("mousedown", detectOutsideClick);
+            document.removeEventListener("keydown", handleEscape);
+        };
+    }, []);
+
     return (
-        <div className="fixed inset-0 z-50 bg-black/40 backdrop-blur-md flex justify-center items-center p-4">
-            <div className=" flex flex-row gap-5 w-[48rem] bg-white/10 backdrop-blur-xl border border-white/20 shadow-xl rounded-2xl p-6">
+        <div className="fixed inset-0 z-50 bg-black/40 backdrop-blur-md flex justify-center items-center p-4" >
+            <div className=" flex flex-row gap-5 w-[48rem] bg-white/10 backdrop-blur-xl border border-white/20 shadow-xl rounded-2xl p-6 " ref={modalRef}>
                 {onClose && (
                     <button
                         onClick={onClose}
