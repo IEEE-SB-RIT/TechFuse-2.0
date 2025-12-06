@@ -16,6 +16,7 @@ interface EventData {
     venue: string;
     date: string;
     salutaion?: string;
+    eventDescription?: string;
 
     speakers?: Speaker[];
     partners?: Partner[];
@@ -45,9 +46,11 @@ const eventData: EventData[] = [
             { name: "Richu Bini and Rishad Alayan", description: "Embedded Software Design Engineer" },
         ],
         src: "/temp.jpeg",
-        location:"Rit Kottayam"
-        
-        
+        location:"Rit Kottayam",
+        eventDescription:"A gathering of developers, innovators, and tech enthusiasts featuring keynotes, workshops, and networking."
+
+
+
     },
     {
         id: 7,
@@ -62,8 +65,9 @@ const eventData: EventData[] = [
             { name: "Muhammed Shibil C", description: "Robotics Trainer" },
         ],
         src: "/temp.jpeg",
-        location:"Rit Kottayam"
-        
+        location:"Rit Kottayam",
+        eventDescription:"A gathering of developers, innovators, and tech enthusiasts featuring keynotes, workshops, and networking."
+
     },
     {
         id: 8,
@@ -80,7 +84,8 @@ const eventData: EventData[] = [
             },
         ],
         src: "/temp.jpeg",
-        location:"Rit Kottayam"
+        location:"Rit Kottayam",
+        eventDescription:"A gathering of developers, innovators, and tech enthusiasts featuring keynotes, workshops, and networking."
     },
     {
         id: 15,
@@ -92,6 +97,7 @@ const eventData: EventData[] = [
         salutaion: "Rise of the Machines",
         src: "/temp.jpeg",
         location:"Rit Kottayam",
+        eventDescription:"A gathering of developers, innovators, and tech enthusiasts featuring keynotes, workshops, and networking.",
         partners: [
             {
                 name: "Rit Kottayam",
@@ -114,7 +120,8 @@ const eventData: EventData[] = [
             },
         ],
         src: "/temp.jpeg",
-        location:"Rit Kottayam"
+        location:"Rit Kottayam",
+        eventDescription:"A gathering of developers, innovators, and tech enthusiasts featuring keynotes, workshops, and networking."
     },
     {
         id: 13,
@@ -130,7 +137,8 @@ const eventData: EventData[] = [
         ],
         formLink: "",
         src: "/temp.jpeg",
-        location:"Rit Kottayam"
+        location:"Rit Kottayam",
+        eventDescription:"A gathering of developers, innovators, and tech enthusiasts featuring keynotes, workshops, and networking."
     },
     {
         id: 12,
@@ -143,7 +151,8 @@ const eventData: EventData[] = [
         price: ["Tickets of 5 at 20% off"],
         formLink: "",
         src: "/temp.jpeg",
-        location:"Rit Kottayam"
+        location:"Rit Kottayam",
+        eventDescription:"A gathering of developers, innovators, and tech enthusiasts featuring keynotes, workshops, and networking."
     },
     {
         id: 1,
@@ -160,7 +169,8 @@ const eventData: EventData[] = [
         ],
         formLink: "",
         src: "/temp.jpeg",
-        location:"Rit Kottayam"
+        location:"Rit Kottayam",
+        eventDescription:"A gathering of developers, innovators, and tech enthusiasts featuring keynotes, workshops, and networking."
     },
     {
         id: 2,
@@ -176,7 +186,8 @@ const eventData: EventData[] = [
             },
         ],
         src: "/temp.jpeg",
-        location:"Rit Kottayam"
+        location:"Rit Kottayam",
+        eventDescription:"A gathering of developers, innovators, and tech enthusiasts featuring keynotes, workshops, and networking."
     },
     {
         id: 3,
@@ -194,6 +205,7 @@ const eventData: EventData[] = [
         ],
         src: "/temp.jpeg",
         location:"Rit Kottayam",
+        eventDescription:"A gathering of developers, innovators, and tech enthusiasts featuring keynotes, workshops, and networking.",
         form: true,
         formLink: "https://bit.ly/Talksession_1",
     },
@@ -214,6 +226,7 @@ const eventData: EventData[] = [
         ],
         src: "/temp.jpeg",
         location:"Rit Kottayam",
+        eventDescription:"A gathering of developers, innovators, and tech enthusiasts featuring keynotes, workshops, and networking.",
         form: true,
         formLink: "https://bit.ly/Talksession_2",
     },

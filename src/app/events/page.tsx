@@ -40,8 +40,8 @@ function Events() {
             <EventModal data={{
                 src: selectedEvent.src,
                 name: selectedEvent.eventName,
-                description: selectedEvent.description,
-                free: selectedEvent.free,
+                description: selectedEvent.eventDescription,
+                free: selectedEvent.form, //if form is true-> not ticket ,free
             }} onClose={() => setSelectedEvent(null)} />
         )}
     </div>
