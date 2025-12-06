@@ -1,8 +1,7 @@
-import React, {useEffect, useRef} from "react";
+import React, {useEffect, useRef, useState} from "react";
 import Image from "next/image";
 import Button from "@/app/components/button";
 import { X } from "lucide-react";
-import * as events from "node:events";
 
 interface Modal {
     src: string;
@@ -18,6 +17,13 @@ interface EventModalProps {
 
 
 export default function EventModal({data, onClose}: EventModalProps) {
+
+    const [show, setShow] = useState(false);
+
+    useEffect(() => {
+        const t = setTimeout(() => setShow(true), 10);
+        return () => clearTimeout(t);
+    }, []);
 
     const modalRef = useRef<HTMLDivElement | null>(null);
 
@@ -44,8 +50,8 @@ export default function EventModal({data, onClose}: EventModalProps) {
     }, []);
 
     return (
-        <div className="fixed inset-0 z-50 bg-black/40 backdrop-blur-md flex justify-center items-center p-4" >
-            <div className=" flex flex-row gap-5 w-[48rem] bg-white/10 backdrop-blur-xl border border-white/20 shadow-xl rounded-2xl p-6 " ref={modalRef}>
+        <div className={`fixed inset-0 z-50 bg-black/40 backdrop-blur-md flex justify-center items-center p-4 transition-opacity duration-300 ease-in-out ${show ? "opacity-100" : "opacity-0"}` } >
+            <div  className={`relative flex flex-row gap-5 w-[48rem] bg-white/10 backdrop-blur-xl border border-white/20 shadow-xl rounded-2xl p-6 transition-all duration-300 ease-in-out ${show ? "scale-100 opacity-100" : "scale-95 opacity-0"}`} ref={modalRef}>
                 {onClose && (
                     <button
                         onClick={onClose}
