@@ -15,10 +15,9 @@ function Events() {
     // const [open,isOpen] =useState(false);
 
     useEffect(() => {
-        if(selectedEvent){
+        if (selectedEvent) {
             document.body.style.overflow = "hidden";
-        }
-        else{
+        } else {
             document.body.style.overflow = "auto";
         }
 
@@ -28,23 +27,25 @@ function Events() {
     }, [selectedEvent]);
 
     return (
-    <div className="p-4">
-      <Heading text="Events" />
-      <div className="flex flex-row flex-wrap justify-center gap-5 items-center">
-        {eventData.map((event) => (
-          // @ts-ignore
-          <EventCard key={event.id} data={event} onClick={() => setSelectedEvent(event)} />
-        ))}
-      </div>
-        {selectedEvent && (
-            <EventModal data={{
-                src: selectedEvent.src,
-                name: selectedEvent.eventName,
-                description: selectedEvent.eventDescription,
-                free: selectedEvent.form, //if form is true-> not ticket ,free
-            }} onClose={() => setSelectedEvent(null)} />
-        )}
-    </div>
+        <div className="min-h-screen px-4 py-10">
+            <Heading text="Events"/>
+            <div className="flex flex-wrap justify-center gap-8 max-w-7xl mx-auto">
+                {eventData.map((event) => (
+                    // @ts-ignore
+                    <div className="">
+                        <EventCard key={event.id} data={event} onClick={() => setSelectedEvent(event)}/>
+                    </div>
+                ))}
+            </div>
+            {selectedEvent && (
+                <EventModal data={{
+                    src: selectedEvent.src,
+                    name: selectedEvent.eventName,
+                    description: selectedEvent.eventDescription,
+                    free: selectedEvent.form, //if form is true-> not ticket ,free
+                }} onClose={() => setSelectedEvent(null)}/>
+            )}
+        </div>
     );
 }
 
