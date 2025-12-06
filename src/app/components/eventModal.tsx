@@ -16,8 +16,8 @@ interface EventModalProps {
 
 export default function EventModal({data, onClose}: EventModalProps) {
     return (
-        <div className="fixed inset-0 z-50 bg-black/50 flex justify-center items-center p-4">
-            <div className="">
+        <div className="fixed inset-0 z-50 bg-black/40 backdrop-blur-md flex justify-center items-center p-4">
+            <div className="flex flex-row bg-red-500 gap-5 ">
                 <Image
                     src={data.src}
                     alt={data.name}
@@ -26,7 +26,7 @@ export default function EventModal({data, onClose}: EventModalProps) {
                     className="object-cover rounded-xl"
                 />
 
-                <div>
+                <div className="flex flex-col justify-start gap-3 p-5">
                     <h1>{data.name}</h1>
                     <p>{data.description}</p>
 
