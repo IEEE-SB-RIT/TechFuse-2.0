@@ -13,8 +13,8 @@ export default function EventCard({data,onClick}: EventCardProps) {
     return (
 
         <div onClick={onClick}
-            className="flex flex-col bg-gradient-to-br cursor-pointer from-white/10 via-white/10 to-white/10 backdrop-blur-xl  rounded-t-xl rounded-b-xl max-w-sm mx-auto shadow-2xl ">
-            <div className="relative rounded-t-xl overflow-hidden">
+            className="flex flex-col   bg-gradient-to-br cursor-pointer from-white/10 via-white/10 to-white/10 backdrop-blur-xl  rounded-t-xl rounded-b-xl max-w-sm mx-auto shadow-2xl ">
+            <div className="relative rounded-t-xl overflow-hidden ">
 
                 <div
                     className="absolute top-2 right-2 flex items-center gap-1 bg-white/30 backdrop-blur-md text-[10px] text-white px-2 py-1 rounded-full shadow">
@@ -26,7 +26,7 @@ export default function EventCard({data,onClick}: EventCardProps) {
                     alt="Event Image"
                     width={300}
                     height={200}
-                    className="rounded-t-xl object-cover"
+                    className="rounded-t-xl object-cover w-full h-full "
                 />
             </div>
 
