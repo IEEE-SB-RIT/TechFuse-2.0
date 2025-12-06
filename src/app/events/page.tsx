@@ -3,7 +3,7 @@
 import Heading from "@/app/components/heading";
 import EventCard from "@/app/components/eventCard";
 import eventData from "@/app/lib/eventData";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import Image from "next/image";
 import Button from "@/app/components/button";
 import EventModal from "@/app/components/eventModal";
@@ -14,6 +14,18 @@ function Events() {
     // const [clicked,isClicked] =useState(false);
     // const [open,isOpen] =useState(false);
 
+    useEffect(() => {
+        if(selectedEvent){
+            document.body.style.overflow = "hidden";
+        }
+        else{
+            document.body.style.overflow = "auto";
+        }
+
+        return () => {
+            document.body.style.overflow = "auto";
+        }
+    }, [selectedEvent]);
 
     return (
     <div className="p-4">
@@ -21,7 +33,7 @@ function Events() {
       <div className="flex flex-row flex-wrap justify-center gap-5 items-center">
         {eventData.map((event) => (
           // @ts-ignore
-          <EventCard key={event.eventId} data={event} onClick={() => setSelectedEvent(event)} />
+          <EventCard key={event.id} data={event} onClick={() => setSelectedEvent(event)} />
         ))}
       </div>
         {selectedEvent && (
