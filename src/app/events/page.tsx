@@ -6,6 +6,7 @@ import eventData from "@/app/lib/eventData";
 import {useState} from "react";
 import Image from "next/image";
 import Button from "@/app/components/button";
+import EventModal from "@/app/components/eventModal";
 
 function Events() {
     // @ts-ignore
@@ -23,26 +24,14 @@ function Events() {
           <EventCard key={event.eventId} data={event} onClick={() => setSelectedEvent(event)} />
         ))}
       </div>
-        {/*{selectedEvent && (*/}
-        {/*    <div>*/}
-        {/*        <Image*/}
-        {/*            src={selectedEvent.src}*/}
-        {/*            alt={selectedEvent.eventName}*/}
-        {/*            width={400}*/}
-        {/*            height={300}*/}
-        {/*            className="object-cover rounded-xl"*/}
-        {/*        />*/}
-        {/*        <div>*/}
-        {/*            <h1>{selectedEvent.eventName}</h1>*/}
-        {/*            <p>{selectedEvent.description}</p>*/}
-        {/*            {selectedEvent.free ? (*/}
-        {/*                <Button text="Register Now" link="$"/>*/}
-        {/*            ) : (*/}
-        {/*                <Button text="Get Tickets" link="#"/>*/}
-        {/*            )}*/}
-        {/*        </div>*/}
-        {/*    </div>*/}
-        {/*)}*/}
+        {selectedEvent && (
+            <EventModal data={{
+                src: selectedEvent.src,
+                name: selectedEvent.eventName,
+                description: selectedEvent.description,
+                free: selectedEvent.free,
+            }} onClose={() => setSelectedEvent(null)} />
+        )}
     </div>
     );
 }
