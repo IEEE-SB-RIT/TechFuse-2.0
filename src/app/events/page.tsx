@@ -3,9 +3,10 @@
 import Heading from "@/app/components/heading";
 import EventCard from "@/app/components/eventCard";
 import eventData from "@/app/lib/eventData";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import Image from "next/image";
 import Button from "@/app/components/button";
+import EventModal from "@/app/components/eventModal";
 
 function Events() {
     // @ts-ignore
@@ -13,37 +14,38 @@ function Events() {
     // const [clicked,isClicked] =useState(false);
     // const [open,isOpen] =useState(false);
 
+    useEffect(() => {
+        if (selectedEvent) {
+            document.body.style.overflow = "hidden";
+        } else {
+            document.body.style.overflow = "auto";
+        }
+
+        return () => {
+            document.body.style.overflow = "auto";
+        }
+    }, [selectedEvent]);
 
     return (
-    <div className="p-4">
-      <Heading text="Events" />
-      <div className="flex flex-row flex-wrap justify-center gap-5 items-center">
-        {eventData.map((event) => (
-          // @ts-ignore
-          <EventCard key={event.eventId} data={event} onClick={() => setSelectedEvent(event)} />
-        ))}
-      </div>
-        {/*{selectedEvent && (*/}
-        {/*    <div>*/}
-        {/*        <Image*/}
-        {/*            src={selectedEvent.src}*/}
-        {/*            alt={selectedEvent.eventName}*/}
-        {/*            width={400}*/}
-        {/*            height={300}*/}
-        {/*            className="object-cover rounded-xl"*/}
-        {/*        />*/}
-        {/*        <div>*/}
-        {/*            <h1>{selectedEvent.eventName}</h1>*/}
-        {/*            <p>{selectedEvent.description}</p>*/}
-        {/*            {selectedEvent.free ? (*/}
-        {/*                <Button text="Register Now" link="$"/>*/}
-        {/*            ) : (*/}
-        {/*                <Button text="Get Tickets" link="#"/>*/}
-        {/*            )}*/}
-        {/*        </div>*/}
-        {/*    </div>*/}
-        {/*)}*/}
-    </div>
+        <div className="min-h-screen px-4 py-10">
+            <Heading text="Events"/>
+            <div className="flex flex-wrap justify-center gap-8 max-w-7xl mx-auto">
+                {eventData.map((event) => (
+                    // @ts-ignore
+                    <div className="">
+                        <EventCard key={event.id} data={event} onClick={() => setSelectedEvent(event)}/>
+                    </div>
+                ))}
+            </div>
+            {selectedEvent && (
+                <EventModal data={{
+                    src: selectedEvent.src,
+                    name: selectedEvent.eventName,
+                    description: selectedEvent.eventDescription,
+                    free: selectedEvent.form, //if form is true-> not ticket ,free
+                }} onClose={() => setSelectedEvent(null)}/>
+            )}
+        </div>
     );
 }
 
