@@ -43,6 +43,8 @@ function Events() {
                     name: selectedEvent.eventName,
                     description: selectedEvent.eventDescription,
                     free: selectedEvent.form, //if form is true-> not ticket ,free
+                    speakers:selectedEvent.speakers,
+                    // price:selectedEvent.price
                 }} onClose={() => setSelectedEvent(null)}/>
             )}
         </div>
