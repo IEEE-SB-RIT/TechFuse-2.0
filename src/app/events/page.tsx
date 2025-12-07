@@ -27,7 +27,7 @@ function Events() {
     }, [selectedEvent]);
 
     return (
-        <div className="min-h-screen px-4 py-10">
+        <div className="min-h-screen pt-32 pb-20 px-6">
             <Heading text="Events"/>
             <div className="flex flex-wrap justify-center gap-8 max-w-7xl mx-auto">
                 {eventData.map((event) => (
