@@ -1,30 +1,30 @@
-"use client"
+"use client";
 
 import Heading from "@/app/components/heading";
 import EventCard from "@/app/components/eventCard";
 import eventData from "@/app/lib/eventData";
-import {useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import Button from "@/app/components/button";
 import EventModal from "@/app/components/eventModal";
 
 function Events() {
-    // @ts-ignore
-    const [selectedEvent, setSelectedEvent] = useState<EventData | null>(null);
-    // const [clicked,isClicked] =useState(false);
-    // const [open,isOpen] =useState(false);
+  // @ts-ignore
+  const [selectedEvent, setSelectedEvent] = useState<EventData | null>(null);
+  // const [clicked,isClicked] =useState(false);
+  // const [open,isOpen] =useState(false);
 
-    useEffect(() => {
-        if (selectedEvent) {
-            document.body.style.overflow = "hidden";
-        } else {
-            document.body.style.overflow = "auto";
-        }
+  useEffect(() => {
+    if (selectedEvent) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
 
-        return () => {
-            document.body.style.overflow = "auto";
-        }
-    }, [selectedEvent]);
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [selectedEvent]);
 
     return (
         <div className="min-h-screen pt-32 pb-20 px-6">
