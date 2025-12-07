@@ -18,7 +18,7 @@ export default function EventCard({data,onClick}: EventCardProps) {
 
                 <div
                     className="absolute top-2 right-2 flex items-center gap-1 bg-white/30 backdrop-blur-md text-[10px] text-white px-2 py-1 rounded-full shadow">
-                    <span>{data.eventType}</span>
+                    <span>{data.type}</span>
                 </div>
 
                 <Image
