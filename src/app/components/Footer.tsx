@@ -1,207 +1,288 @@
 "use client";
 
 import { useState } from "react";
-import FooterHeading from "./footerHeading"; // adjust if needed
+import Link from "next/link";
+import Image from "next/image"; // 1. Import Image component
 
 export default function Footer() {
   const [mailStatus, setMailStatus] = useState(false);
+  const currentYear = new Date().getFullYear();
 
   const handleMail = () => setMailStatus((prev) => !prev);
 
   return (
-    <footer
-      className="bg-tf-radial-pattern border border-white/10
-rounded-t-2xl shadow-lg text-white backdrop-blur-xl w-full rounded-t-3xl px-6 py-10"
-    >
-      <div className="flex flex-col gap-8 md:flex-row justify-evenly text-center md:text-left">
-        {/* --- Stay Updated --- */}
-        <div>
-          <FooterHeading text="Stay updated!" />
-          <ul className="flex items-center justify-center md:justify-start flex-row gap-2">
-            {/* Instagram */}
-            <li>
-              <a
+    <footer className="relative bg-[#0C143B] border-t border-white/10 overflow-hidden">
+      {/* Background Decor */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[300px] bg-[#162A6B] opacity-40 blur-[80px] rounded-full pointer-events-none" />
+
+      <div className="relative z-10  mx-auto px-6 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 lg:gap-8">
+          {/* --- BRANDING COLUMN (Span 4) --- */}
+          <div className="md:col-span-4 flex flex-col items-center md:items-start gap-6">
+            {/* Replace the <Link> block in the Footer with this robust version */}
+
+            <Link href="/" className="group block mb-4">
+              <div className="flex items-center gap-3">
+                {/* Attempt to load image */}
+                <Image
+                  src="/techfuselogo.webp"
+                  alt="TechFuse 2.0 Logo"
+                  width={200}
+                  height={80}
+                  unoptimized
+                  className="w-48 md:w-56 h-auto object-contain"
+                  priority // Helps load it faster
+                />
+              </div>
+
+              {/* OPTIONAL: Uncomment this if you want text to show UP until you fix the image */}
+              {/* <h2 className="font-display text-3xl font-bold tracking-tighter text-white uppercase mt-2">
+    TECHFUSE <span className="text-[#66FFFF]">2.0</span>
+  </h2> 
+  */}
+            </Link>
+            <p className="font-sans text-zinc-400 text-sm leading-relaxed text-center md:text-left max-w-xs">
+              IEEE RAS SBC RIT presents a saga of signals. Innovating the future
+              through robotics, automation, and technology.
+            </p>
+
+            {/* Social Icons Row */}
+            <div className="flex items-center gap-4 mt-2">
+              <SocialLink
                 href="https://instagram.com/ieeesbrit"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:underline"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="30"
-                  height="30"
-                  viewBox="0 0 24 24"
-                  className="hover:scale-110 hover:text-[#66FFFF]  transition-transform duration-200"
-                >
-                  <path
-                    fill="currentColor"
-                    d="M17.34 5.46a1.2 1.2 0 1 0 1.2 1.2a1.2 1.2 0 0 0-1.2-1.2Zm4.6 2.42a7.59 7.59 0 0 0-.46-2.43a4.94 4.94 0 0 0-1.16-1.77a4.7 4.7 0 0 0-1.77-1.15a7.3 7.3 0 0 0-2.43-.47C15.06 2 14.72 2 12 2s-3.06 0-4.12.06a7.3 7.3 0 0 0-2.43.47a4.78 4.78 0 0 0-1.77 1.15a4.7 4.7 0 0 0-1.15 1.77a7.3 7.3 0 0 0-.47 2.43C2 8.94 2 9.28 2 12s0 3.06.06 4.12a7.3 7.3 0 0 0 .47 2.43a4.7 4.7 0 0 0 1.15 1.77a4.78 4.78 0 0 0 1.77 1.15a7.3 7.3 0 0 0 2.43.47C8.94 22 9.28 22 12 22s3.06 0 4.12-.06a7.3 7.3 0 0 0 2.43-.47a4.7 4.7 0 0 0 1.77-1.15a4.85 4.85 0 0 0 1.16-1.77a7.59 7.59 0 0 0 .46-2.43c0-1.06.06-1.4.06-4.12s0-3.06-.06-4.12ZM20.14 16a5.61 5.61 0 0 1-.34 1.86a3.06 3.06 0 0 1-.75 1.15a3.19 3.19 0 0 1-1.15.75a5.61 5.61 0 0 1-1.86.34c-1 .05-1.37.06-4 .06s-3 0-4-.06a5.73 5.73 0 0 1-1.94-.3a3.27 3.27 0 0 1-1.1-.75a3 3 0 0 1-.74-1.15a5.54 5.54 0 0 1-.4-1.9c0-1-.06-1.37-.06-4s0-3 .06-4a5.54 5.54 0 0 1 .35-1.9A3 3 0 0 1 5 5a3.14 3.14 0 0 1 1.1-.8A5.73 5.73 0 0 1 8 3.86c1 0 1.37-.06 4-.06s3 0 4 .06a5.61 5.61 0 0 1 1.86.34a3.06 3.06 0 0 1 1.19.8a3.06 3.06 0 0 1 .75 1.1a5.61 5.61 0 0 1 .34 1.9c.05 1 .06 1.37.06 4s-.01 3-.06 4ZM12 6.87A5.13 5.13 0 1 0 17.14 12A5.12 5.12 0 0 0 12 6.87Zm0 8.46A3.33 3.33 0 1 1 15.33 12A3.33 3.33 0 0 1 12 15.33Z"
-                  />
-                </svg>
-              </a>
-            </li>
-
-            {/* LinkedIn */}
-            <li>
-              <a
-                rel="noopener noreferrer"
-                target="_blank"
+                icon="instagram"
+              />
+              <SocialLink
                 href="https://www.linkedin.com/company/ieee-sb-rit/"
-              >
+                icon="linkedin"
+              />
+
+              {/* Interactive Email Toggle */}
+              <div className="relative flex items-center">
+                <button
+                  onClick={handleMail}
+                  className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-zinc-400 hover:text-[#66FFFF] hover:border-[#66FFFF] transition-all duration-300"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <rect width="20" height="16" x="2" y="4" rx="2" />
+                    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                  </svg>
+                </button>
+
+                {/* Reveal Animation */}
+                <div
+                  className={`absolute left-12 top-1/2 -translate-y-1/2 overflow-hidden transition-all duration-500 ease-out ${
+                    mailStatus ? "w-64 opacity-100" : "w-0 opacity-0"
+                  }`}
+                >
+                  <a
+                    href="mailto:ieeesb.ritk@gmail.com"
+                    className="font-mono text-sm text-[#66FFFF] whitespace-nowrap hover:underline px-2"
+                  >
+                    ieeesb.ritk@gmail.com
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* --- NAVIGATION (Span 2) --- */}
+          <div className="md:col-span-2 flex flex-col items-center md:items-start">
+            <h3 className="font-mono text-[#66FFFF] text-xs uppercase tracking-widest mb-6">
+              Menu
+            </h3>
+            <ul className="space-y-3 font-sans text-sm text-zinc-400">
+              <li>
+                <Link href="/" className="hover:text-white transition-colors">
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/about"
+                  className="hover:text-white transition-colors"
+                >
+                  About
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/events"
+                  className="hover:text-white transition-colors"
+                >
+                  Schedule
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/gallery"
+                  className="hover:text-white transition-colors"
+                >
+                  Gallery
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* --- CONTACT (Span 3) --- */}
+          <div className="md:col-span-3 flex flex-col items-center md:items-start">
+            <h3 className="font-mono text-[#66FFFF] text-xs uppercase tracking-widest mb-6">
+              Contact
+            </h3>
+            <ul className="space-y-4 font-sans text-sm text-zinc-400">
+              <ContactItem name="Bijila Anna Thomas" phone="+91 62384 64655" />
+              <ContactItem name="R Harikrishnan" phone="+91 96569 90468" />
+            </ul>
+          </div>
+
+          {/* --- LOCATION (Span 3) --- */}
+          <div className="md:col-span-3 flex flex-col items-center md:items-start">
+            <h3 className="font-mono text-[#66FFFF] text-xs uppercase tracking-widest mb-6">
+              Location
+            </h3>
+            <a
+              href="https://maps.google.com/?q=Rajiv+Gandhi+Institute+of+Technology+Kottayam"
+              target="_blank"
+              rel="noreferrer"
+              className="group block text-center md:text-left"
+            >
+              <p className="font-sans text-sm text-zinc-400 leading-relaxed group-hover:text-white transition-colors">
+                IEEE RAS SBC RIT
+                <br />
+                Rajiv Gandhi Institute of Technology
+                <br />
+                Kottayam, Kerala – 686501
+              </p>
+              <div className="mt-3 flex items-center justify-center md:justify-start gap-2 text-[#66FFFF] text-xs font-bold uppercase tracking-wide opacity-80 group-hover:opacity-100 transition-opacity">
+                <span>Get Directions</span>
                 <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 20 20"
-                  className="hover:scale-110 hover:text-[#66FFFF]  transition-transform duration-200"
+                  className="w-4 h-4 group-hover:translate-x-1 transition-transform"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
                 >
                   <path
-                    fill="currentColor"
-                    d="M17.04 17.043h-2.962v-4.64c0-1.107-.023-2.531-1.544-2.531c-1.544 0-1.78 1.204-1.78 2.449v4.722H7.793V7.5h2.844v1.3h.039c.397-.75 1.364-1.54 2.808-1.54c3.001 0 3.556 1.974 3.556 4.545v5.238ZM4.447 6.194c-.954 0-1.72-.771-1.72-1.72s.767-1.72 1.72-1.72a1.72 1.72 0 0 1 0 3.44Zm1.484 10.85h-2.97V7.5h2.97v9.543ZM18.521 0H1.476C.66 0 0 .645 0 1.44v17.12C0 19.355.66 20 1.476 20h17.042c.815 0 1.482-.644 1.482-1.44V1.44C20 .646 19.333 0 18.518 0h.003Z"
-                  />
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M17 8l4 4m0 0l-4 4m4-4H3"
+                  ></path>
                 </svg>
-              </a>
-            </li>
-
-            {/* Email toggle */}
-            <li className="flex flex-row items-center justify-center">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="30"
-                height="30"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="hover:scale-110 hover:text-[#66FFFF]  transition-transform duration-200 cursor-pointer"
-                onClick={handleMail}
-              >
-                <path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7" />
-                <rect x="2" y="4" width="20" height="16" rx="2" />
-              </svg>
-
-              <span
-                className={`font-quicksand px-2 transition-all duration-300 ease-in-out ${
-                  mailStatus
-                    ? "opacity-100 scale-100 max-w-xs visible"
-                    : "opacity-0 scale-90 max-w-0 invisible"
-                }`}
-                style={{ display: "inline-block", overflow: "hidden" }}
-              >
-                ieeesb.ritk@gmail.com
-              </span>
-            </li>
-          </ul>
-        </div>
-
-        {/* --- Contact --- */}
-        <div>
-          <FooterHeading text="Contact us" />
-          <div className="font-quicksand space-y-2 text-md flex flex-col items-center">
-            <div className="flex flex-col items-start justify-start gap-2">
-              <div className="flex flex-row items-center">
-                <p className="mr-1 font-bold">Bijila Anna Thomas :</p>
-                <a
-                  href="tel:+916238464655"
-                  className="hover:scale-110 hover:text-[#66FFFF]  transition-transform duration-200"
-                >
-                  +91 62384 64655
-                </a>
               </div>
-
-              <div className="flex flex-row items-start">
-                <p className="mr-1 font-bold">R Harikrishnan :</p>
-                <a
-                  href="tel:+919656990468"
-                  className="hover:scale-110 hover:text-[#66FFFF]  transition-transform duration-200"
-                >
-                  +91 96569 90468
-                </a>
-              </div>
-            </div>
+            </a>
           </div>
         </div>
 
-        {/* --- Built By --- */}
-        <div>
-          <FooterHeading text="Built by" />
-          <div className="font-quicksand flex flex-col items-center text-md space-y-2">
-            <div className="flex flex-col gap-2">
-              <a
-                target="_blank"
-                rel="noopener noreferrer"
-                href="https://devcard.link/hP9V2t"
-                className="flex items-center gap-2 hover:scale-105 hover:text-[#66FFFF]  transition-transform duration-200"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="M21 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h6" />
-                  <path d="m21 3-9 9" />
-                  <path d="M15 3h6v6" />
-                </svg>
-                <p>Dhananjay R</p>
-              </a>
+        {/* --- BOTTOM BAR --- */}
+        <div className="border-t border-white/5 mt-16 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+          <p className="font-mono text-xs text-zinc-600 uppercase tracking-widest text-center">
+            © {currentYear} IEEE RAS SBC RIT.
+          </p>
 
-              <a
-                target="_blank"
-                rel="noopener noreferrer"
-                href="https://devcard.link/OFNHWZ"
-                className="flex items-center gap-2 hover:scale-105 hover:text-[#66FFFF]  transition-transform duration-200"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="M21 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h6" />
-                  <path d="m21 3-9 9" />
-                  <path d="M15 3h6v6" />
-                </svg>
-                <p>Farzan RS</p>
-              </a>
+          <div className="flex items-center gap-6 text-zinc-600">
+            <span className="font-mono text-xs uppercase tracking-widest">
+              Built by
+            </span>
+            <div className="flex gap-4">
+              <DeveloperLink
+                name="Dhananjay R"
+                link="https://devcard.link/hP9V2t"
+              />
+              <span className="text-zinc-700">/</span>
+              <DeveloperLink
+                name="Farzan RS"
+                link="https://devcard.link/OFNHWZ"
+              />
             </div>
           </div>
         </div>
-
-        {/* --- Address --- */}
-        <div>
-          <FooterHeading text="Address" />
-          <a
-            href="https://maps.app.goo.gl/M6Da5HZXwG45Wru5A"
-            target="_blank"
-            className="font-quicksand hover:scale-105 hover:text-[#66FFFF]  transition-transform duration-200"
-          >
-            IEEE RAS SBC RIT, <br />
-            Rajiv Gandhi Institute of Technology, <br />
-            Kottayam, Kerala – 686501
-          </a>
-          <p className="font-quicksand mt-1">Click to obtain location ☝</p>
-        </div>
-      </div>
-
-      <div className="text-sm text-gray-400 font-josefin text-center flex items-center justify-center mt-10 border-t border-gray-700 pt-8">
-        <p>
-          &copy; {new Date().getFullYear()} IEEE RAS SBC RIT. All rights
-          reserved.
-        </p>
       </div>
     </footer>
   );
 }
+
+// --- SUBCOMPONENTS ---
+
+const SocialLink = ({
+  href,
+  icon,
+}: {
+  href: string;
+  icon: "instagram" | "linkedin";
+}) => (
+  <a
+    href={href}
+    target="_blank"
+    rel="noopener noreferrer"
+    className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-zinc-400 hover:text-[#66FFFF] hover:border-[#66FFFF] hover:bg-[#66FFFF]/10 transition-all duration-300"
+  >
+    {icon === "instagram" ? (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="18"
+        height="18"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+        <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+      </svg>
+    ) : (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="18"
+        height="18"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+        <rect width="4" height="12" x="2" y="9" />
+        <circle cx="4" cy="4" r="2" />
+      </svg>
+    )}
+  </a>
+);
+
+const ContactItem = ({ name, phone }: { name: string; phone: string }) => (
+  <li className="flex flex-col">
+    <span className="text-zinc-500 text-xs uppercase tracking-wider mb-1">
+      {name}
+    </span>
+    <a
+      href={`tel:${phone.replace(/\s/g, "")}`}
+      className="hover:text-[#66FFFF] transition-colors"
+    >
+      {phone}
+    </a>
+  </li>
+);
+
+const DeveloperLink = ({ name, link }: { name: string; link: string }) => (
+  <a
+    href={link}
+    target="_blank"
+    rel="noopener noreferrer"
+    className="font-mono text-xs text-zinc-500 hover:text-[#66FFFF] transition-colors"
+  >
+    {name}
+  </a>
+);

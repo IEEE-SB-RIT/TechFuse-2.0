@@ -1,44 +1,57 @@
 @import "tailwindcss";
 
-:root {
-  /* Core Colors (Extracted from TechFuse.jpg) */
-  --color-tf-bg-primary: #0c143b; /* Dark Navy/Indigo Background */
-  --color-tf-bg-secondary: #162a6b; /* Subtle Dark Blue Pattern/Card Background */
-  --color-tf-accent: #00ffff; /* Electric Cyan/Teal Accent */
-  --color-tf-text-light: #ffffff; /* Pure White Text/Headings */
+/* 1. MAP VARIABLES TO TAILWIND UTILITIES */
+@theme {
+  /* This makes "font-display" use your custom variable */
+  --font-display: var(--font-spaceGrotesk);
 
-  --font-display: var(--font-space);
-  --font-body: var(--font-inter);
+  /* This overrides the default "font-sans" */
+  --font-sans: var(--font-inter);
+
+  /* This overrides the default "font-mono" */
   --font-mono: var(--font-mono);
 
-  /* Map Tailwind defaults to our custom variables for easy use */
-  --background-primary: var(--color-tf-bg-primary);
-  --accent-color: var(--color-tf-accent);
+  /* You can also map colors here if you want usage like "text-tf-accent" */
+  --color-tf-bg: #0c143b;
+  --color-tf-accent: #66ffff;
 }
 
-.bg-tf-primary {
-  background-color: var(--color-tf-bg-primary);
+/* 2. ROOT VARIABLES (For usage outside Tailwind utilities) */
+:root {
+  /* Core Colors */
+  --color-tf-bg-primary: #0c143b;
+  --color-tf-bg-secondary: #162a6b;
+  --color-tf-accent: #66ffff;
+  --color-tf-text-light: #ffffff;
+  /* This makes "font-display" use your custom variable */
+  --font-display: var(--font-spaceGrotesk);
+
+  /* This overrides the default "font-sans" */
+  --font-sans: var(--font-inter);
+
+  /* This overrides the default "font-mono" */
+  --font-mono: var(--font-mono);
 }
-.text-tf-accent {
-  color: var(--color-tf-accent);
+
+/* 3. BASE STYLES */
+body {
+  background: var(--color-tf-bg-primary);
+  color: white;
+  overflow-x: hidden;
+  font-family: var(--font-sans); /* Sets default font */
 }
+
+/* 4. UTILITY CLASSES */
 .bg-tf-radial-pattern {
   background: radial-gradient(
       at 50% 100%,
-      /* Start from the bottom center */ var(--color-tf-bg-secondary) 10%,
-      /* Start with the subtle blue */ var(--color-tf-bg-primary) 70%
-        /* Fade to the main background color */
+      var(--color-tf-bg-secondary) 10%,
+      var(--color-tf-bg-primary) 70%
     ),
     var(--color-tf-bg-primary);
 }
 
-body {
-  background: var(--color-tf-bg);
-  color: white;
-  overflow-x: hidden; /* Prevent horizontal scroll */
-}
-
-/* --- CUSTOM ANIMATIONS --- */
+/* 5. ANIMATIONS */
 @keyframes signalPulse {
   0%,
   100% {
@@ -70,7 +83,7 @@ body {
   }
 }
 
-/* Utility classes for animations */
+/* Animation Utilities */
 .animate-signal {
   animation: signalPulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
@@ -83,7 +96,7 @@ body {
   animation: float 6s ease-in-out infinite;
 }
 
-/* --- RADAR GRID PATTERN --- */
+/* 6. RADAR GRID PATTERN */
 .bg-radar-grid {
   background-size: 50px 50px;
   background-image: linear-gradient(
