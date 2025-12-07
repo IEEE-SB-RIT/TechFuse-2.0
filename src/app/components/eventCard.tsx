@@ -18,7 +18,7 @@ export default function EventCard({data,onClick}: EventCardProps) {
 
                 <div
                     className="absolute top-2 right-2 flex items-center gap-1 bg-white/30 backdrop-blur-md text-[10px] text-white px-2 py-1 rounded-full shadow">
-                    <span>{data.eventType}</span>
+                    <span>{data.type}</span>
                 </div>
 
                 <Image
@@ -40,7 +40,7 @@ export default function EventCard({data,onClick}: EventCardProps) {
 
 
                 <div
-                    className="flex justify-between items-start w-full text-xs font-medium leading-tight opacity-75">
+                    className="flex justify-between items-start md:flex-row flex-col w-full text-xs gap-2 font-medium leading-tight opacity-75">
 
                     <div className="flex items-center gap-1.5 text-yellow-300">
                         <MapPin size={14}/>
