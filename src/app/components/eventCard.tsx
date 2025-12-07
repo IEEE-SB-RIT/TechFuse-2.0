@@ -40,7 +40,7 @@ export default function EventCard({data,onClick}: EventCardProps) {
 
 
                 <div
-                    className="flex justify-between items-start w-full text-xs font-medium leading-tight opacity-75">
+                    className="flex justify-between items-start md:flex-row flex-col w-full text-xs gap-2 font-medium leading-tight opacity-75">
 
                     <div className="flex items-center gap-1.5 text-yellow-300">
                         <MapPin size={14}/>
