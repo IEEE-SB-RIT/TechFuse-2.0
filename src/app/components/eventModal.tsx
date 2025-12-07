@@ -24,19 +24,25 @@ export default function EventModal({data, onClose}: EventModalProps) {
         const t = setTimeout(() => setShow(true), 10);
         return () => clearTimeout(t);
     }, []);
+   const closeModal = () => {
+       setShow(false);
+       setTimeout(() => {
+           onClose?.();
+       }, 300);
+   }
 
     const modalRef = useRef<HTMLDivElement | null>(null);
 
     useEffect(() => {
         function detectOutsideClick(e: MouseEvent) {
             if (modalRef.current && !modalRef.current.contains(e.target as Node)) {
-                onClose?.();
+               closeModal();
             }
         }
 
         function handleEscape(e: KeyboardEvent) {
             if (e.key === "Escape") {
-                onClose?.();
+                closeModal()
             }
         }
 
@@ -54,7 +60,7 @@ export default function EventModal({data, onClose}: EventModalProps) {
             <div  className={`relative flex flex-row gap-5 w-[48rem] bg-white/10 backdrop-blur-xl border border-white/20 shadow-xl rounded-2xl p-6 transition-all duration-300 ease-in-out ${show ? "scale-100 opacity-100" : "scale-95 opacity-0"}`} ref={modalRef}>
                 {onClose && (
                     <button
-                        onClick={onClose}
+                        onClick={closeModal}
                         className="absolute top-4 right-4 w-9 h-9 flex items-center justify-center
                                rounded-full  hover:bg-white/30 backdrop-blur-lg
                                border border-white/30 shadow-lg transition cursor-pointer"
