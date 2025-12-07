@@ -64,6 +64,11 @@ const eventData: EventData[] = [
             { name: "Nivan Nelson", description: "ROS Trainer" },
             { name: "Muhammed Shibil C", description: "Robotics Trainer" },
         ],
+        price: [
+            "IEEE RAS Members - 1000",
+            "IEEE Members - 1200",
+            "Non-IEEE Members - 1450",
+        ],
         src: "/temp.jpeg",
         location:"Rit Kottayam",
         eventDescription:"A gathering of developers, innovators, and tech enthusiasts featuring keynotes, workshops, and networking."
