@@ -45,7 +45,7 @@ const eventData: EventData[] = [
             { name: "Abhijith Benny", description: "Hardware Design Engineer" },
             { name: "Richu Bini and Rishad Alayan", description: "Embedded Software Design Engineer" },
         ],
-        src: "/temp.jpeg",
+        src: "/temp.jpg",
         location:"Rit Kottayam",
         eventDescription:"A gathering of developers, innovators, and tech enthusiasts featuring keynotes, workshops, and networking."
 
@@ -69,7 +69,7 @@ const eventData: EventData[] = [
             "IEEE Members - 1200",
             "Non-IEEE Members - 1450",
         ],
-        src: "/temp.jpeg",
+        src: "/temp.jpg",
         location:"Rit Kottayam",
         eventDescription:"A gathering of developers, innovators, and tech enthusiasts featuring keynotes, workshops, and networking."
 
@@ -88,7 +88,7 @@ const eventData: EventData[] = [
                 description: "Avionics and Robotics Integration Lead, Rovonize System Pvt.Ltd",
             },
         ],
-        src: "/temp.jpeg",
+        src: "/temp.jpg",
         location:"Rit Kottayam",
         eventDescription:"A gathering of developers, innovators, and tech enthusiasts featuring keynotes, workshops, and networking."
     },
@@ -100,7 +100,7 @@ const eventData: EventData[] = [
         venue: "Rit Kottayam",
         date: "2025-09-26 to 2025-09-28",
         salutaion: "Rise of the Machines",
-        src: "/temp.jpeg",
+        src: "/temp.jpg",
         location:"Rit Kottayam",
         eventDescription:"A gathering of developers, innovators, and tech enthusiasts featuring keynotes, workshops, and networking.",
         partners: [
@@ -124,7 +124,7 @@ const eventData: EventData[] = [
                 description: "Technical Coordinator, IEEE SPS Kerala Chapter",
             },
         ],
-        src: "/temp.jpeg",
+        src: "/temp.jpg",
         location:"Rit Kottayam",
         eventDescription:"A gathering of developers, innovators, and tech enthusiasts featuring keynotes, workshops, and networking."
     },
@@ -141,7 +141,7 @@ const eventData: EventData[] = [
             { name: "Anvaya", description: "The sensational band led by Sreerag Menon" },
         ],
         formLink: "",
-        src: "/temp.jpeg",
+        src: "/temp.jpg",
         location:"Rit Kottayam",
         eventDescription:"A gathering of developers, innovators, and tech enthusiasts featuring keynotes, workshops, and networking."
     },
@@ -155,7 +155,7 @@ const eventData: EventData[] = [
         salutaion: "🤖 RoboIgnite – Ignite your passion for Robotics",
         price: ["Tickets of 5 at 20% off"],
         formLink: "",
-        src: "/temp.jpeg",
+        src: "/temp.jpg",
         location:"Rit Kottayam",
         eventDescription:"A gathering of developers, innovators, and tech enthusiasts featuring keynotes, workshops, and networking."
     },
@@ -173,7 +173,7 @@ const eventData: EventData[] = [
             "Non-IEEE Members - 1450",
         ],
         formLink: "",
-        src: "/temp.jpeg",
+        src: "/temp.jpg",
         location:"Rit Kottayam",
         eventDescription:"A gathering of developers, innovators, and tech enthusiasts featuring keynotes, workshops, and networking."
     },
@@ -190,7 +190,7 @@ const eventData: EventData[] = [
                 role: "Venue Partner for RoboIgnite 2025",
             },
         ],
-        src: "/temp.jpeg",
+        src: "/temp.jpg",
         location:"Rit Kottayam",
         eventDescription:"A gathering of developers, innovators, and tech enthusiasts featuring keynotes, workshops, and networking."
     },
@@ -208,7 +208,7 @@ const eventData: EventData[] = [
                 description: "Executive Manager at IHub Research and Robotics Pvt Ltd",
             },
         ],
-        src: "/temp.jpeg",
+        src: "/temp.jpg",
         location:"Rit Kottayam",
         eventDescription:"A gathering of developers, innovators, and tech enthusiasts featuring keynotes, workshops, and networking.",
         form: true,
@@ -229,7 +229,7 @@ const eventData: EventData[] = [
                     "PhD Researcher in Human-Robot Interaction, ISHIGURO Lab, Osaka University",
             },
         ],
-        src: "/temp.jpeg",
+        src: "/temp.jpg",
         location:"Rit Kottayam",
         eventDescription:"A gathering of developers, innovators, and tech enthusiasts featuring keynotes, workshops, and networking.",
         form: true,
