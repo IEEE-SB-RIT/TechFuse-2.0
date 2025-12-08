@@ -26,29 +26,36 @@ function Events() {
     };
   }, [selectedEvent]);
 
-    return (
-        <div className="min-h-screen pt-32 pb-20 px-6">
-            <Heading text="Events"/>
-            <div className="flex flex-wrap justify-center gap-8 max-w-7xl mx-auto">
-                {eventData.map((event) => (
-                    // @ts-ignore
-                    <div className="">
-                        <EventCard key={event.id} data={event} onClick={() => setSelectedEvent(event)}/>
-                    </div>
-                ))}
-            </div>
-            {selectedEvent && (
-                <EventModal data={{
-                    src: selectedEvent.src,
-                    name: selectedEvent.eventName,
-                    description: selectedEvent.eventDescription,
-                    free: selectedEvent.form, //if form is true-> not ticket ,free
-                    speakers:selectedEvent.speakers,
-                    // price:selectedEvent.price
-                }} onClose={() => setSelectedEvent(null)}/>
-            )}
-        </div>
-    );
+  return (
+    <div className="min-h-screen pt-32 pb-20 px-6">
+      <Heading text="Events" />
+      <div className="flex flex-wrap justify-center gap-8 max-w-7xl mx-auto">
+        {eventData.map((event) => (
+          // @ts-ignore
+          <div key={event.id} className="">
+            <EventCard
+              key={event.id}
+              data={event}
+              onClick={() => setSelectedEvent(event)}
+            />
+          </div>
+        ))}
+      </div>
+      {selectedEvent && (
+        <EventModal
+          data={{
+            src: selectedEvent.src,
+            name: selectedEvent.eventName,
+            description: selectedEvent.eventDescription,
+            free: selectedEvent.form, //if form is true-> not ticket ,free
+            speakers: selectedEvent.speakers,
+            // price:selectedEvent.price
+          }}
+          onClose={() => setSelectedEvent(null)}
+        />
+      )}
+    </div>
+  );
 }
 
 export default Events;
