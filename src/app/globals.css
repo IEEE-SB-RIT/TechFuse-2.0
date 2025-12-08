@@ -14,6 +14,7 @@
   /* You can also map colors here if you want usage like "text-tf-accent" */
   --color-tf-bg: #0c143b;
   --color-tf-accent: #66ffff;
+  --color-techFuseBlue: #03a4b7;
 }
 
 /* 2. ROOT VARIABLES (For usage outside Tailwind utilities) */
