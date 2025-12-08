@@ -13,7 +13,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden">
+    <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden">
       {/* =========================================
           BACKGROUND LAYERS (The "Signal" Vibe)
       ========================================= */}
@@ -111,6 +111,6 @@ export default function Home() {
           </p>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
