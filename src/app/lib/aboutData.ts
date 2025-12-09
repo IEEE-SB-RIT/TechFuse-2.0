@@ -2,14 +2,16 @@ interface aboutData {
     heading?: string;
     src: string;
     description: string;
+    className?: string;
 }
 
 const aboutData: aboutData[] = [
     {
         heading: "TechFuse 2.0",
-        src: "/about-us-image-1.webp",
+        src: "/techfuselogo.webp",
         description:
-            "Join us for TechFuse 2.0, the ultimate three-day event organized by IEEE SPS SBC RIT in partnership with IEEE SPS Kerala Chapter hosted at Rajiv Gandhi Institute of Technology, Kottayam! Dive into hands-on workshops, interactive sessions, and expert talks focused on cutting-edge signal processing and technology. Unleash your creativity through hands-on learning in Edge AI and IoT, Virtual Reality, and ADAS using embedded systems. TechFuse 2.0 is your ticket to innovation and collaboration—let's inspire the engineer in you to explore, create, and excel! Don’t miss out!"
+            "Join us for TechFuse 2.0, the ultimate three-day event organized by IEEE SPS SBC RIT in partnership with IEEE SPS Kerala Chapter hosted at Rajiv Gandhi Institute of Technology, Kottayam! Dive into hands-on workshops, interactive sessions, and expert talks focused on cutting-edge signal processing and technology. Unleash your creativity through hands-on learning in Edge AI and IoT, Virtual Reality, and ADAS using embedded systems. TechFuse 2.0 is your ticket to innovation and collaboration—let's inspire the engineer in you to explore, create, and excel! Don’t miss out!",
+        className: "object-contain w-[520px] h-[320px] bg-tf-radial-pattern"
     },
     {
         heading: "IEEE SB RIT",
