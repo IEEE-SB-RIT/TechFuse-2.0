@@ -19,10 +19,14 @@ function AboutTemplate(Data: Data) {
     const headings = Array.isArray(Data.heading) ? Data.heading : [Data.heading];
     const descriptions = Array.isArray(Data.description) ? Data.description : [Data.description];
 
+    // Determine the complete responsive layout classes
+    const layoutClasses = layout === "flex-row-reverse"
+        ? "flex-col-reverse md:flex-row-reverse"
+        : "flex-col-reverse md:flex-row";
+
     return (
         <div className="flex flex-col items-center w-full py-8 px-6">
 
-            {/* Render all headings */}
             <div
                 className={`w-full text-left px-5 md:px-8 py-2 ${Data.animation?.className}`}
                 style={Data.animation?.style}
@@ -32,11 +36,10 @@ function AboutTemplate(Data: Data) {
                 ))}
             </div>
 
-            <div className={`flex flex-col-reverse md:flex-col-reverse md:${layout} 
+            <div className={`flex ${layoutClasses} 
                 items-center justify-between gap-10 md:gap-14 
                 w-full py-12 px-4 md:px-8`}>
 
-                {/* Render all descriptions */}
                 <div
                     className={`max-w-[550px] space-y-6 min-h-[220px] ${
                         layout === "flex-row-reverse" ? "md:pl-10" : "md:pr-10"
@@ -46,14 +49,13 @@ function AboutTemplate(Data: Data) {
                     {descriptions.map((desc, idx) => (
                         <p
                             key={idx}
-                            className="font-sans text-[17px] md:text-xl font-medium leading-relaxed
-                               text-gray-700 dark:text-gray-300 tracking-wide"
+                            className="font-sans text-[14px] md:text-xl font-medium leading-relaxed
+                               text-gray-700 dark:text-gray-300 tracking-wide "
                         >
                             {desc}
                         </p>
                     ))}
                 </div>
-
 
                 <div
                     className={`flex justify-center ${Data.animation?.className}`}
