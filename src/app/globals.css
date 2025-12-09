@@ -101,7 +101,7 @@ body {
 .bg-radar-grid {
   background-size: 50px 50px;
   background-image: linear-gradient(
-      to right,
+      to left,
       rgba(255, 255, 255, 0.05) 1px,
       transparent 1px
     ),

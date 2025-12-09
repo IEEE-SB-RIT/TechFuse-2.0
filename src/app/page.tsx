@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import BgComp from "./components/BgComp";
 import { useEffect, useState } from "react";
 
 export default function Home() {
@@ -14,18 +15,7 @@ export default function Home() {
 
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden">
-      {/* =========================================
-          BACKGROUND LAYERS (The "Signal" Vibe)
-      ========================================= */}
-
-      {/* 1. Radar Grid */}
-      <div className="absolute inset-0 bg-radar-grid pointer-events-none" />
-
-      {/* 2. Scanning Line (The "Search" for signals) */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#66FFFF]/5 to-transparent h-full w-full animate-scanline pointer-events-none" />
-
-      {/* 3. Glowing Core (Behind the logo) */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#66FFFF]/10 rounded-full blur-[100px] animate-signal pointer-events-none" />
+      <BgComp />
 
       {/* =========================================
           MAIN CONTENT
@@ -87,7 +77,7 @@ export default function Home() {
             href="/register"
             className="group relative inline-flex items-center justify-center px-7 py-4 font-bold text-white transition-all duration-200 bg-transparent rounded-2xl border border-[#66FFFF] hover:bg-[#66FFFF] hover:text-[#0C143B] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#66FFFF]"
           >
-            <span className="absolute inset-0 w-full h-full -mt-1 rounded-lg opacity-30 bg-gradient-to-b from-transparent via-transparent to-gray-700"></span>
+            <span className="absolute inset-0 w-full h-full -mt-1 rounded-lg opacity-30 bg-linear-to-b from-transparent via-transparent to-gray-700"></span>
             <span className="relative text-sm tracking-[0.2em] uppercase">
               Initialize
             </span>
