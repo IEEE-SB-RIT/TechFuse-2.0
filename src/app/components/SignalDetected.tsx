@@ -1,25 +1,20 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useState } from "react";
 
 function SignalDetected({ mount }: { mount: boolean }) {
-  const textRef = useRef<HTMLSpanElement>(null);
-  const containerRef = useRef<HTMLDivElement>(null);
-
+  const [loaded, setLoaded] = useState(false);
   useEffect(() => {
     setTimeout(() => {
-      containerRef.current?.classList.replace("bg-black", "bg-[#0C143B]/80");
-      if (textRef.current) {
-        textRef.current.textContent = "Signal Detected";
-      }
+      setLoaded(true);
     }, 3000);
   }, []);
-
   return (
     <div
-      ref={containerRef}
       className={`
         mb-8 flex items-center gap-3 px-4 py-2 rounded-full
-        border border-[#66FFFF]/30 bg-black backdrop-blur-md
-        transition-opacity transition-transform duration-700
+        border border-[#66FFFF]/30 ${
+          loaded ? "bg-[#0C143B]/80" : "bg-black"
+        } backdrop-blur-md
+        transition-colors duration-700
         ${mount ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}
       `}
     >
@@ -28,11 +23,8 @@ function SignalDetected({ mount }: { mount: boolean }) {
         <span className="relative rounded-full h-2 w-2 bg-[#66FFFF]"></span>
       </span>
 
-      <span
-        ref={textRef}
-        className="font-mono text-xs text-[#66FFFF] tracking-[0.2em] uppercase"
-      >
-        Initializing...
+      <span className="font-mono text-xs text-[#66FFFF] tracking-[0.2em] uppercase">
+        {loaded ? "Signal Detected" : "Initializing..."}
       </span>
     </div>
   );
