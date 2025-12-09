@@ -4,9 +4,13 @@ import aboutData from "@/app/lib/aboutData";
 
 function AboutUs() {
     return (
-        <div>
-            <Heading text={"About Us"}/>
-            <div className="flex flex-col gap-6">
+        <div className="pt-28 pb-20 px-6">
+            {/* Same heading spacing + alignment */}
+            <div className="mb-12 text-center">
+                <Heading text="About Us" />
+            </div>
+
+            <div className="flex flex-col gap-10 md:gap-16 max-w-7xl mx-auto">
                 {aboutData.map((data, index) => (
                     <AboutTemplate
                         key={index}

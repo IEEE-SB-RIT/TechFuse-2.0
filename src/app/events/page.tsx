@@ -27,9 +27,12 @@ function Events() {
   }, [selectedEvent]);
 
     return (
-        <div className="min-h-screen pt-32 pb-20 px-6">
-            <Heading text="Events"/>
-            <div className="flex flex-wrap justify-center gap-8 max-w-7xl mx-auto">
+        <div className="min-h-screen pt-32 pb-20 px-6 gap-5">
+            <div className="mb-10">
+                <Heading text="Events"/>
+            </div>
+
+            <div className="flex flex-wrap justify-center gap-10 md:gap-12 max-w-7xl mx-auto">
                 {eventData.map((event) => (
                     // @ts-ignore
                     <div className="">
@@ -43,7 +46,7 @@ function Events() {
                     name: selectedEvent.eventName,
                     description: selectedEvent.eventDescription,
                     free: selectedEvent.form, //if form is true-> not ticket ,free
-                    speakers:selectedEvent.speakers,
+                    speakers: selectedEvent.speakers,
                     // price:selectedEvent.price
                 }} onClose={() => setSelectedEvent(null)}/>
             )}
