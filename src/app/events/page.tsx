@@ -10,6 +10,8 @@ import EventModal from "@/app/components/eventModal";
 import loadingAnimation from "@/hooks/loadingAnimation";
 import useLoadingAnimation from "@/hooks/loadingAnimation";
 import SectionHeading from "../components/SectionHeading";
+import GridBackground from "../components/gridBackground";
+import { Grid } from "lucide-react";
 
 function Events() {
   // @ts-ignore
@@ -33,6 +35,7 @@ function Events() {
 
   return (
     <div className="min-h-screen pt-32 pb-20 px-6 gap-5">
+      <GridBackground />
       <div className={`mb-10`} {...loadingAnimation()}>
         <SectionHeading text1="Featured" text2="Events" />
       </div>

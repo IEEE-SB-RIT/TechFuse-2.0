@@ -3,6 +3,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { galleryImages, GalleryItem } from "@/app/lib/gallery-data";
 import SectionHeading from "../components/SectionHeading";
+import GridBackground from "../components/gridBackground";
 
 export default function GalleryPage() {
   const [selectedImage, setSelectedImage] = useState<GalleryItem | null>(null);
@@ -56,6 +57,7 @@ export default function GalleryPage() {
 
   return (
     <div className="min-h-screen bg-tf-primary pt-32 pb-20 px-6">
+      <GridBackground />
       {/* --- HEADER --- */}
       <div
         className={`max-w-7xl mx-auto mb-16 transition-all duration-700 ${

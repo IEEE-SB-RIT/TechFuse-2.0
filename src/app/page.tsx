@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import BgComp from "./components/BgComp";
+import GridBackground from "./components/gridBackground";
 import { useEffect, useState } from "react";
 import SignalDetected from "./components/SignalDetected";
 export default function Home() {
@@ -15,7 +15,7 @@ export default function Home() {
 
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden">
-      <BgComp />
+      <GridBackground />
 
       {/* =========================================
           MAIN CONTENT
