@@ -7,6 +7,7 @@ interface Data {
     src: string;
     description: string;
     align?: "flex-row" | "flex-row-reverse";
+    animation?: { className: string; style?: React.CSSProperties };
 }
 
 function AboutTemplate(Data: Data) {
@@ -17,7 +18,10 @@ function AboutTemplate(Data: Data) {
         <div className="flex flex-col items-center w-full py-8 px-6">
 
 
-            <div className="w-full text-left px-5 md:px-8 py-2">
+            <div
+                className={`w-full text-left px-5 md:px-8 py-2 ${Data.animation?.className}`}
+                style={Data.animation?.style}
+            >
                 <SubHeading title={Data.heading}/>
             </div>
 
@@ -27,8 +31,10 @@ function AboutTemplate(Data: Data) {
 
 
                 <div
-                    className={`max-w-[550px] space-y-4 min-h-[220px]
-    ${Data.align === "flex-row-reverse" ? "md:pl-10" : "md:pr-10"}`}
+                    className={`max-w-[550px] space-y-4 min-h-[220px] ${
+                        layout === "flex-row-reverse" ? "md:pl-10" : "md:pr-10"
+                    } ${Data.animation?.className}`}
+                    style={Data.animation?.style}
                 >
                     <p className="font-sans text-lg md:text-xl font-medium leading-relaxed
                         text-gray-700 dark:text-gray-300 tracking-wide">
@@ -36,7 +42,10 @@ function AboutTemplate(Data: Data) {
                     </p>
                 </div>
 
-                <div className="flex justify-center">
+                <div
+                    className={`flex justify-center ${Data.animation?.className}`}
+                    style={Data.animation?.style}
+                >
                     <div className="relative overflow-hidden rounded-2xl shadow-lg
                         hover:shadow-2xl transition-all duration-300
                         hover:scale-[1.02]">
