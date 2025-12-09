@@ -24,7 +24,7 @@ function SignalDetected({ mount }: { mount: boolean }) {
       </span>
 
       <span className="font-mono text-xs text-[#66FFFF] tracking-[0.2em] uppercase">
-        {loaded ? "Signal Detected" : "Initializing..."}
+        {loaded ? "Connected" : "Initializing..."}
       </span>
     </div>
   );

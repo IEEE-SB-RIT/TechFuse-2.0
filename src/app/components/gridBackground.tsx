@@ -15,7 +15,7 @@ function GridBackground() {
       */}
       <div
         className="absolute inset-0 h-full w-full 
-        bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] 
+        bg-[linear-gradient(to_right,#80808012_1.5px,transparent_1.5px),linear-gradient(to_bottom,#80808012_1.5px,transparent_1.5px)] 
         bg-[size:60px_60px]"
       ></div>
 

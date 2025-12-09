@@ -67,7 +67,7 @@ export default function Home() {
           >
             <span className="absolute inset-0 w-full h-full -mt-1 rounded-lg opacity-30 bg-linear-to-b from-transparent via-transparent to-gray-700"></span>
             <span className="relative text-sm tracking-[0.2em] uppercase">
-              Initialize
+              Grab your tickets
             </span>
             <svg
               className="w-4 h-4 ml-2 relative group-hover:translate-x-1 transition-transform"
