@@ -25,7 +25,7 @@ const aboutData: aboutData[] = [
     },
     {
         heading: "IEEE SPS Kerala Chapter",
-        src: "/about-us-image-4.webp",
+        src: "/about-us-image-3.webp",
         description:
             "The IEEE Signal Processing Society (SPS) Kerala Chapter is an exciting community of 23 student leaders and 20 industry professionals dedicated to transforming signal processing! With support from a dynamic advisory body, they organize impactful events and empower SPS branches across Kerala, contributing to prestigious events like ICIP and ICASSP. Their vibrant collaborations with other IEEE chapters create a global network that sparks creativity and knowledge-sharing in this ever-evolving field!"
     }
