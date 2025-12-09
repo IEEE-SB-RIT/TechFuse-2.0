@@ -2,9 +2,9 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import BgComp from "./components/BgComp";
+import GridBackground from "./components/gridBackground";
 import { useEffect, useState } from "react";
-
+import SignalDetected from "./components/SignalDetected";
 export default function Home() {
   const [mounted, setMounted] = useState(false);
 
@@ -15,26 +15,14 @@ export default function Home() {
 
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden">
-      <BgComp />
+      <GridBackground />
 
       {/* =========================================
           MAIN CONTENT
       ========================================= */}
       <div className="relative z-10 flex flex-col items-center text-center px-4">
         {/* Status Badge */}
-        <div
-          className={`mb-8 flex items-center gap-3 px-4 py-2 rounded-full border border-[#66FFFF]/30 bg-[#0C143B]/80 backdrop-blur-md transition-all duration-700 ${
-            mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-          }`}
-        >
-          <span className="relative flex h-2 w-2">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#66FFFF] opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-[#66FFFF]"></span>
-          </span>
-          <span className="font-mono text-xs text-[#66FFFF] tracking-[0.2em] uppercase">
-            Signal Detected
-          </span>
-        </div>
+        <SignalDetected mount={mounted} />
 
         {/* LOGO (With float animation) */}
         <div
@@ -95,7 +83,6 @@ export default function Home() {
               ></path>
             </svg>
           </Link>
-
           <p className="mt-4 font-mono text-xs text-zinc-600">
             TRANSMISSION ID: 2.0 // 2025
           </p>
