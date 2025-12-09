@@ -61,7 +61,7 @@ const Navbar = () => {
             href="/register"
             className="px-6 py-2 bg-white text-black text-xs font-bold tracking-widest uppercase rounded-full hover:bg-cyan-400 hover:scale-105 transition-all duration-300 shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:shadow-[0_0_20px_rgba(34,211,238,0.6)]"
           >
-            Register
+            Get Tickets!
           </Link>
         </nav>
 
