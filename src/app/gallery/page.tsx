@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useCallback } from "react";
 import { galleryImages, GalleryItem } from "@/app/lib/gallery-data";
+import SectionHeading from "../components/SectionHeading";
 
 export default function GalleryPage() {
   const [selectedImage, setSelectedImage] = useState<GalleryItem | null>(null);
@@ -61,9 +62,7 @@ export default function GalleryPage() {
           isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
         }`}
       >
-        <h1 className="font-display text-5xl md:text-7xl font-bold uppercase tracking-tighter text-white mb-6">
-          Event <span className="text-tf-accent">Gallery</span>
-        </h1>
+        <SectionHeading text1="Event" text2="Gallery" />
         <p className="font-sans text-zinc-400 max-w-2xl text-lg leading-relaxed border-l-2 border-tf-accent/30 pl-6">
           A visual journey through our past events. Explore the moments of
           innovation, collaboration, and breakthrough technologies.
