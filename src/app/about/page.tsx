@@ -4,16 +4,21 @@ import Heading from "@/app/components/heading";
 import AboutTemplate from "@/app/components/aboutTemplate";
 import aboutData from "@/app/lib/aboutData";
 import useLoadingAnimation from "@/hooks/loadingAnimation";
+import GridBackground from "@/app/components/gridBackground";
+import SectionHeading from "@/app/components/SectionHeading";
 
 function AboutUs() {
     const animate= useLoadingAnimation()
     return (
         <div className="pt-28 pb-20 px-6">
+            <GridBackground />
+
             <div
-                className={`mb-12 text-center ${animate().className}`}
+                className={`mb-12  ${animate().className}`}
                 style={animate().style}
             >
-                <Heading text="About Us"/>
+                <SectionHeading text1="About" text2="Us" />
+
             </div>
 
             <div className="flex flex-col gap-10 md:gap-16 max-w-7xl mx-auto">
