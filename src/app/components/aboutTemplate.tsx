@@ -32,7 +32,7 @@ function AboutTemplate(Data: Data) {
                 ))}
             </div>
 
-            <div className={`flex ${layout} flex-col-reverse md:${layout} 
+            <div className={`flex flex-col-reverse md:flex-col-reverse md:${layout} 
                 items-center justify-between gap-10 md:gap-14 
                 w-full py-12 px-4 md:px-8`}>
 
@@ -46,7 +46,7 @@ function AboutTemplate(Data: Data) {
                     {descriptions.map((desc, idx) => (
                         <p
                             key={idx}
-                            className="font-sans text-lg md:text-xl font-medium leading-relaxed
+                            className="font-sans text-[17px] md:text-xl font-medium leading-relaxed
                                text-gray-700 dark:text-gray-300 tracking-wide"
                         >
                             {desc}
@@ -54,7 +54,7 @@ function AboutTemplate(Data: Data) {
                     ))}
                 </div>
 
-                {/* Single image for the whole section */}
+
                 <div
                     className={`flex justify-center ${Data.animation?.className}`}
                     style={Data.animation?.style}
@@ -68,7 +68,7 @@ function AboutTemplate(Data: Data) {
                             width={520}
                             height={320}
                             alt={headings.join(" / ")}
-                            className={`w-[520px] h-[320px] ${Data.className || "object-cover"}`}
+                            className={`md:w-[520px] md:h-[320px] ${Data.className || "object-cover"}`}
                         />
 
                     </div>
