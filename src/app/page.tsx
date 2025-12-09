@@ -13,7 +13,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden">
+    <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden">
       {/* =========================================
           BACKGROUND LAYERS (The "Signal" Vibe)
       ========================================= */}
@@ -66,12 +66,13 @@ export default function Home() {
 
         {/* THEME TITLE */}
         <h2
-          className={`font-sans  text-xl md:text-2xl text-zinc-400 font-bold tracking-[0.2em] mb-12 transition-all duration-1000 delay-200 ${
+          className={`font-sans flex flex-row gap-4 text-xl md:text-2xl text-zinc-400 font-bold tracking-[0.2em] mb-12 transition-all duration-1000 delay-200 ${
             mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           }`}
         >
-          A SAGA OF{" "}
-          <span className="text-white font-medium border-b border-[#66FFFF] pb-1">
+          A<span className="text-techFuseBlue">SAGA</span>
+          OF
+          <span className="text-techFuseBlue font-medium border-b border-white pb-1">
             SIGNALS
           </span>
         </h2>
@@ -110,6 +111,6 @@ export default function Home() {
           </p>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
