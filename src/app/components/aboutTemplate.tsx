@@ -14,10 +14,10 @@ function AboutTemplate(Data: Data) {
     const layout = Data.align || "flex-row";
 
     return (
-        <div className="flex flex-col items-center w-full p-5">
+        <div className="flex flex-col items-center w-full py-8 px-6">
 
 
-            <div className="w-full text-left px-4 md:px-8">
+            <div className="w-full text-left px-5 md:px-8 py-2">
                 <SubHeading title={Data.heading}/>
             </div>
 
@@ -26,9 +26,11 @@ function AboutTemplate(Data: Data) {
                 w-full py-12 px-4 md:px-8`}>
 
 
-                <div className={`max-w-[550px] space-y-4 
-                    ${Data.align === "flex-row-reverse" ? "md:pl-10" : "md:pr-10"}`}>
-                    <p className="text-base md:text-lg leading-relaxed
+                <div
+                    className={`max-w-[550px] space-y-4 min-h-[220px]
+    ${Data.align === "flex-row-reverse" ? "md:pl-10" : "md:pr-10"}`}
+                >
+                    <p className="font-sans text-lg md:text-xl font-medium leading-relaxed
                         text-gray-700 dark:text-gray-300 tracking-wide">
                         {Data.description}
                     </p>
@@ -44,7 +46,7 @@ function AboutTemplate(Data: Data) {
                             width={520}
                             height={320}
                             alt={Data.heading}
-                            className="rounded-2xl object-cover"
+                            className="rounded-2xl object-cover h-[320px] w-[520px]"
                         />
 
 
