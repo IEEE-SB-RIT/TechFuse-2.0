@@ -7,12 +7,17 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import Button from "@/app/components/button";
 import EventModal from "@/app/components/eventModal";
+import loadingAnimation from "@/hooks/loadingAnimation";
+import useLoadingAnimation from "@/hooks/loadingAnimation";
 
 function Events() {
   // @ts-ignore
   const [selectedEvent, setSelectedEvent] = useState<EventData | null>(null);
   // const [clicked,isClicked] =useState(false);
   // const [open,isOpen] =useState(false);
+
+    const animate = useLoadingAnimation();
+
 
   useEffect(() => {
     if (selectedEvent) {
@@ -26,36 +31,34 @@ function Events() {
     };
   }, [selectedEvent]);
 
-  return (
-    <div className="min-h-screen pt-32 pb-20 px-6">
-      <Heading text="Events" />
-      <div className="flex flex-wrap justify-center gap-8 max-w-7xl mx-auto">
-        {eventData.map((event) => (
-          // @ts-ignore
-          <div key={event.id} className="">
-            <EventCard
-              key={event.id}
-              data={event}
-              onClick={() => setSelectedEvent(event)}
-            />
-          </div>
-        ))}
-      </div>
-      {selectedEvent && (
-        <EventModal
-          data={{
-            src: selectedEvent.src,
-            name: selectedEvent.eventName,
-            description: selectedEvent.eventDescription,
-            free: selectedEvent.form, //if form is true-> not ticket ,free
-            speakers: selectedEvent.speakers,
-            // price:selectedEvent.price
-          }}
-          onClose={() => setSelectedEvent(null)}
-        />
-      )}
-    </div>
-  );
+    return (
+        <div className="min-h-screen pt-32 pb-20 px-6 gap-5">
+            <div className={`mb-10`} {...loadingAnimation()}>
+                <Heading text="Events"/>
+            </div>
+
+            <div className="flex flex-wrap justify-center gap-10 md:gap-12 max-w-7xl mx-auto">
+                {eventData.map((event, index) => (
+                    <div key={event.id} {...animate(index)}>
+                        <EventCard
+                            data={event}
+                            onClick={() => setSelectedEvent(event)}
+                        />
+                    </div>
+                ))}
+            </div>
+            {selectedEvent && (
+                <EventModal data={{
+                    src: selectedEvent.src,
+                    name: selectedEvent.eventName,
+                    description: selectedEvent.eventDescription,
+                    free: selectedEvent.form, //if form is true-> not ticket ,free
+                    speakers: selectedEvent.speakers,
+                    // price:selectedEvent.price
+                }} onClose={() => setSelectedEvent(null)}/>
+            )}
+        </div>
+    );
 }
 
 export default Events;
