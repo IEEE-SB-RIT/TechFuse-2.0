@@ -26,7 +26,7 @@ export default function EventCard({data,onClick}: EventCardProps) {
                     alt="Event Image"
                     width={300}
                     height={200}
-                    className="rounded-t-xl object-cover w-full h-full "
+                    className="rounded-t-xl object-cover w-[300px] h-[300px] "
                 />
             </div>
 
