@@ -10,14 +10,15 @@ import SectionHeading from "@/app/components/SectionHeading";
 function AboutUs() {
     const animate= useLoadingAnimation()
     return (
-        <div className="pt-28 pb-20 px-6">
-            <GridBackground />
+        <div className="pt-28 pb-20 px-4 sm:px-6 relative overflow-x-hidden">
+
+            <GridBackground/>
 
             <div
                 className={`mb-12  ${animate().className}`}
                 style={animate().style}
             >
-                <SectionHeading text1="About" text2="Us" />
+                <SectionHeading text1="About" text2="Us"/>
 
             </div>
 
