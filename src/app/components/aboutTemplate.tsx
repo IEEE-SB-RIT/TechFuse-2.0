@@ -21,8 +21,8 @@ function AboutTemplate(Data: Data) {
 
     // Determine the complete responsive layout classes
     const layoutClasses = layout === "flex-row-reverse"
-        ? "flex-col-reverse md:flex-row-reverse"
-        : "flex-col-reverse md:flex-row";
+        ? "flex-col-reverse lg:flex-row-reverse"
+        : "flex-col-reverse lg:flex-row";
 
     return (
         <div className="flex flex-col items-center w-full py-8 px-6">
@@ -36,9 +36,11 @@ function AboutTemplate(Data: Data) {
                 ))}
             </div>
 
-            <div className={`flex ${layoutClasses} 
-                items-center justify-between gap-10 md:gap-14 
-                w-full py-12 px-4 md:px-8`}>
+            <div className={`flex ${layoutClasses}
+    items-start md:items-center 
+    justify-start md:justify-between 
+    gap-10 md:gap-14
+    w-full py-12 px-4 md:px-8`}>
 
                 <div
                     className={`max-w-[550px] space-y-6 min-h-[220px] ${
@@ -58,19 +60,19 @@ function AboutTemplate(Data: Data) {
                 </div>
 
                 <div
-                    className={`flex justify-center ${Data.animation?.className}`}
+                    className={`flex justify-center w-full md:w-auto flex-shrink-0 ${Data.animation?.className}`}
                     style={Data.animation?.style}
                 >
                     <div className="relative overflow-hidden rounded-2xl shadow-lg
                         hover:shadow-2xl transition-all duration-300
-                        hover:scale-[1.02]">
+                        hover:scale-[1.02] w-full max-w-[520px]">
 
                         <Image
                             src={Data.src}
                             width={520}
                             height={320}
                             alt={headings.join(" / ")}
-                            className={`md:w-[520px] md:h-[320px] ${Data.className || "object-cover"}`}
+                            className={`w-full h-auto ${Data.className || "object-cover"}`}
                         />
 
                     </div>
