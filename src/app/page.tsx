@@ -5,6 +5,7 @@ import Link from "next/link";
 import GridBackground from "./components/gridBackground";
 import { useEffect, useState } from "react";
 import SignalDetected from "./components/SignalDetected";
+
 export default function Home() {
   const [mounted, setMounted] = useState(false);
 
@@ -42,17 +43,16 @@ export default function Home() {
           </div>
         </div>
 
-        {/* THEME TITLE */}
+        {/* EVENT DATES */}
+        {/* Replaced 'Saga of Signals' with stylized dates */}
         <h2
-          className={`font-sans flex flex-row gap-4 text-xl md:text-2xl text-zinc-400 font-bold tracking-[0.2em] mb-12 transition-all duration-1000 delay-200 ${
+          className={`font-mono flex items-center justify-center gap-3 text-lg md:text-2xl text-white font-semibold tracking-[0.1em] mb-12 transition-all duration-1000 delay-200 ${
             mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           }`}
         >
-          A<span className="text-techFuseBlue">SAGA</span>
-          OF
-          <span className="text-techFuseBlue font-medium border-b border-white pb-1">
-            SIGNALS
-          </span>
+          <span className="text-techFuseBlue">JAN</span> 30, 31
+          <span className="text-zinc-600 mx-1">|</span>
+          <span className="text-techFuseBlue">FEB</span> 01
         </h2>
 
         {/* CALL TO ACTION BUTTON */}
