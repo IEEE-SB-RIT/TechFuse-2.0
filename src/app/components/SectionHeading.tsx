@@ -1,7 +1,6 @@
 "use client";
 
-import React from "react";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 
 // ANIMATION VARIANTS
 // 1. The Container: Controls the timing (stagger) of the words
@@ -17,24 +16,23 @@ const containerVariants = {
 };
 
 // 2. The Word: The actual slide-up animation
-const wordVariants = {
+const wordVariants: Variants = {
   hidden: {
-    y: "110%", // Start below the visible area
+    y: "110%",
     rotateX: 45,
     opacity: 0,
   },
   visible: {
-    y: "0%", // Slide up to normal
+    y: "0%",
     rotateX: 0,
     opacity: 1,
     transition: {
-      type: "spring",
+      type: "spring", // Now TS knows this is the literal "spring"
       damping: 20,
       stiffness: 100,
     },
   },
 };
-
 // HELPER: Splits text and wraps it for the mask effect
 const MaskedText = ({
   text,
