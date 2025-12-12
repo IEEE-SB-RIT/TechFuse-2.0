@@ -16,7 +16,7 @@ export default function Footer() {
       {/* Background Decor */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[300px] bg-[#162A6B] opacity-40 blur-[80px] rounded-full pointer-events-none" />
 
-      <div className="relative z-10  mx-auto px-6 py-8 mt-4">
+      <div className="relative z-10 mx-auto px-6 py-8 mt-4">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 lg:gap-8">
           {/* --- BRANDING COLUMN (Span 4) --- */}
           <div className="md:col-span-4 flex flex-col items-center md:items-start gap-6">
@@ -39,7 +39,7 @@ export default function Footer() {
             </p>
 
             {/* Social Icons Row */}
-            <div className="flex items-center gap-4 mt-2">
+            <div className="flex items-center gap-4 mt-2 relative">
               <SocialLink
                 href="https://instagram.com/ieeesbrit"
                 icon="instagram"
@@ -50,23 +50,36 @@ export default function Footer() {
               />
 
               {/* Interactive Email Toggle */}
-              <div className="relative flex items-center">
+              <div className="relative flex items-center justify-center">
                 <button
                   onClick={handleMail}
-                  className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-zinc-100 hover:text-[#66FFFF] hover:border-[#66FFFF] transition-all duration-300"
+                  className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-zinc-100 hover:text-[#66FFFF] hover:border-[#66FFFF] transition-all duration-300 relative z-20"
                 >
                   <Mail className="" />
                 </button>
 
                 {/* Reveal Animation */}
+                {/* FIX APPLIED HERE:
+                   1. Mobile (default): Positioned absolutely centered BELOW the button (top-full).
+                   2. Desktop (md:): Positioned absolutely to the RIGHT of the button (left-12).
+                */}
                 <div
-                  className={`absolute left-12 top-1/2 -translate-y-1/2 overflow-hidden transition-all duration-500 ease-out ${
-                    mailStatus ? "w-64 opacity-100" : "w-0 opacity-0"
-                  }`}
+                  className={`
+                    absolute z-10 overflow-hidden transition-all duration-500 ease-out
+                    flex items-center justify-center md:justify-start
+                    
+                    /* Mobile Positioning: Centered below */
+                    top-12 left-1/2 -translate-x-1/2 
+                    ${mailStatus ? "h-10 w-64 opacity-100" : "h-0 w-0 opacity-0"}
+
+                    /* Desktop Positioning: To the right */
+                    md:top-1/2 md:left-12 md:translate-x-0 md:-translate-y-1/2
+                    md:h-auto md:${mailStatus ? "w-64 opacity-100" : "w-0 opacity-0"}
+                  `}
                 >
                   <a
                     href="mailto:ieeesb.ritk@gmail.com"
-                    className="font-mono text-sm text-[#66FFFF] whitespace-nowrap hover:underline px-2"
+                    className="font-mono text-sm text-[#66FFFF] whitespace-nowrap hover:underline px-3 py-1 bg-[#0C143B]/90 md:bg-transparent rounded-md md:rounded-none border md:border-none border-[#66FFFF]/20 shadow-lg md:shadow-none"
                   >
                     ieeesb.ritk@gmail.com
                   </a>
@@ -136,7 +149,7 @@ export default function Footer() {
               className="group block text-center md:text-left cursor-pointer"
             >
               <p className="font-sans text-sm text-zinc-300 leading-relaxed group-hover:text-white group-hover:underline decoration-zinc-500 underline-offset-4 transition-all">
-                IEEE SPS SBC RIT
+                IEEE SBC RIT
                 <br />
                 Rajiv Gandhi Institute of Technology
                 <br />
