@@ -4,34 +4,68 @@ import { useState, useEffect, useCallback } from "react";
 import { galleryImages, GalleryItem } from "@/app/lib/gallery-data";
 import SectionHeading from "../components/SectionHeading";
 import GridBackground from "../components/gridBackground";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function GalleryPage() {
   const [selectedImage, setSelectedImage] = useState<GalleryItem | null>(null);
   const [isLoaded, setIsLoaded] = useState(false);
+  const [direction, setDirection] = useState(0); // -1 for left, 1 for right
 
   // --- HANDLERS ---
-  const openLightbox = (image: GalleryItem) => setSelectedImage(image);
+  const openLightbox = (image: GalleryItem) => {
+    setSelectedImage(image);
+    setDirection(0);
+  };
 
   const closeLightbox = () => setSelectedImage(null);
 
   const navigate = useCallback(
-    (direction: "next" | "prev") => {
+    (newDirection: "next" | "prev") => {
       if (!selectedImage) return;
+
+      // 1. Set Direction for Animation
+      setDirection(newDirection === "next" ? 1 : -1);
+
       const currentIndex = galleryImages.findIndex(
         (img) => img.id === selectedImage.id
       );
+
       const newIndex =
-        direction === "next"
+        newDirection === "next"
           ? (currentIndex + 1) % galleryImages.length
           : (currentIndex - 1 + galleryImages.length) % galleryImages.length;
+
+      // 2. Set New Image
       setSelectedImage(galleryImages[newIndex]);
     },
     [selectedImage]
   );
 
-  // --- EFFECTS ---
+  // --- ANIMATION VARIANTS (Fixed) ---
+  const slideVariants = {
+    enter: (direction: number) => ({
+      x: direction > 0 ? "100%" : "-100%", // Enters from Right (100%) or Left (-100%)
+      opacity: 0,
+    }),
+    center: {
+      zIndex: 1,
+      x: 0,
+      opacity: 1,
+    },
+    exit: (direction: number) => ({
+      zIndex: 0,
+      x: direction < 0 ? "100%" : "-100%", // Exits to Right (100%) or Left (-100%)
+      opacity: 0,
+    }),
+  };
 
-  // 1. Keyboard Navigation
+  // --- SWIPE UTILS ---
+  const swipeConfidenceThreshold = 10000;
+  const swipePower = (offset: number, velocity: number) => {
+    return Math.abs(offset) * velocity;
+  };
+
+  // --- EFFECTS ---
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (!selectedImage) return;
@@ -43,7 +77,6 @@ export default function GalleryPage() {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [selectedImage, navigate]);
 
-  // 2. Lock Body Scroll
   useEffect(() => {
     if (selectedImage) {
       document.body.style.overflow = "hidden";
@@ -52,157 +85,118 @@ export default function GalleryPage() {
     }
   }, [selectedImage]);
 
-  // 3. Page Load Animation Trigger
   useEffect(() => setIsLoaded(true), []);
 
   return (
     <div className="min-h-screen bg-tf-primary pt-32 pb-20 px-6">
       <GridBackground />
-      {/* --- HEADER --- */}
-      <div
-        className={`max-w-7xl mx-auto mb-16 transition-all duration-700 ${
-          isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-        }`}
-      >
+      
+      {/* HEADER */}
+      <div className={`max-w-7xl mx-auto mb-16 transition-all duration-700 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
         <SectionHeading text1="Event" text2="Gallery" />
         <p className="font-sans text-zinc-400 max-w-2xl text-lg leading-relaxed border-l-2 border-tf-accent/30 pl-6">
-          A visual journey through our past events. Explore the moments of
-          innovation, collaboration, and breakthrough technologies.
+          A visual journey through our past events. Explore the moments of innovation.
         </p>
       </div>
 
-      {/* --- MASONRY GRID --- */}
-      {/* columns-1 sm:columns-2 lg:columns-3 creates the masonry effect */}
+      {/* GRID */}
       <div className="max-w-7xl mx-auto columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6">
         {galleryImages.map((image, index) => (
           <div
             key={image.id}
             onClick={() => openLightbox(image)}
-            className={`relative group cursor-zoom-in break-inside-avoid rounded-xl overflow-hidden bg-white/5 border border-white/10 transition-all duration-500 ease-out hover:border-tf-accent/50 ${
-              isLoaded
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-20"
-            }`}
+            className={`relative group cursor-zoom-in break-inside-avoid rounded-xl overflow-hidden bg-white/5 border border-white/10 transition-all duration-500 ease-out hover:border-tf-accent/50 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-20"}`}
             style={{ transitionDelay: `${index * 100}ms` }}
           >
-            {/* Image */}
-            <img
-              src={image.src}
-              alt={image.alt}
-              width={image.width}
-              height={image.height}
-              className="w-full h-auto transition-transform duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:scale-110 group-hover:opacity-80"
-            />
-
-            {/* Overlay Gradient on Hover */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
-              <span className="font-mono text-tf-accent text-xs uppercase tracking-widest mb-1 translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                {image.category}
-              </span>
-              <h3 className="font-display text-white text-xl translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-75">
-                {image.alt}
-              </h3>
+            <img src={image.src} alt={image.alt} className="w-full h-auto transition-transform duration-700 group-hover:scale-110" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+               <h3 className="font-display text-white text-xl">{image.alt}</h3>
             </div>
           </div>
         ))}
       </div>
 
-      {/* --- LIGHTBOX MODAL --- */}
-      {selectedImage && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/95 backdrop-blur-xl animate-in fade-in duration-300">
-          {/* Close Button */}
-          <button
+      {/* --- LIGHTBOX (With Fixed Animation) --- */}
+      <AnimatePresence>
+        {selectedImage && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[100] flex items-center justify-center bg-black/95 backdrop-blur-xl touch-none"
             onClick={closeLightbox}
-            className="absolute top-8 right-8 z-[110] text-white/70 hover:text-tf-accent transition-colors p-2"
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="40"
-              height="40"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <line x1="18" y1="6" x2="6" y2="18"></line>
-              <line x1="6" y1="6" x2="18" y2="18"></line>
-            </svg>
-          </button>
+            {/* BUTTONS */}
+            <button onClick={closeLightbox} className="absolute top-6 right-6 z-[120] p-2 bg-black/20 rounded-full text-white/70 hover:text-white">
+               <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </button>
+            <button onClick={(e) => { e.stopPropagation(); navigate("prev"); }} className="absolute left-2 md:left-8 z-[120] p-3 bg-black/20 rounded-full text-white/70 hover:text-white">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
+            </button>
+            <button onClick={(e) => { e.stopPropagation(); navigate("next"); }} className="absolute right-2 md:right-8 z-[120] p-3 bg-black/20 rounded-full text-white/70 hover:text-white">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </button>
 
-          {/* Navigation Buttons */}
-          <button
-            onClick={(e) => {
-              e.stopPropagation();
-              navigate("prev");
-            }}
-            className="absolute left-4 md:left-10 z-[110] text-white/50 hover:text-white p-4 transition-colors hidden md:block"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="48"
-              height="48"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="1"
-              strokeLinecap="round"
-              strokeLinejoin="round"
+            {/* --- IMAGE CONTAINER --- */}
+            <div 
+              className="relative w-full h-full max-w-7xl max-h-[90vh] flex items-center justify-center overflow-hidden"
+              onClick={(e) => e.stopPropagation()} // Stop click from closing modal
             >
-              <polyline points="15 18 9 12 15 6"></polyline>
-            </svg>
-          </button>
-
-          <button
-            onClick={(e) => {
-              e.stopPropagation();
-              navigate("next");
-            }}
-            className="absolute right-4 md:right-10 z-[110] text-white/50 hover:text-white p-4 transition-colors hidden md:block"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="48"
-              height="48"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="1"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <polyline points="9 18 15 12 9 6"></polyline>
-            </svg>
-          </button>
-
-          {/* Main Image Container */}
-          <div
-            className="relative w-full h-full max-w-7xl max-h-[90vh] p-4 flex items-center justify-center"
-            onClick={closeLightbox} // Click outside to close
-          >
-            <div
-              className="relative w-auto h-auto max-w-full max-h-full"
-              onClick={(e) => e.stopPropagation()} // Prevent close when clicking image
-            >
-              <img
-                src={selectedImage.src}
-                alt={selectedImage.alt}
-                width={selectedImage.width}
-                height={selectedImage.height}
-                className="object-contain max-h-[85vh] w-auto shadow-[0_0_50px_rgba(0,0,0,0.5)] rounded-sm"
-              />
-
-              {/* Caption in Modal */}
-              <div className="absolute -bottom-10 left-0 w-full text-center">
-                <p className="font-mono text-white/80 text-sm tracking-widest uppercase">
-                  {selectedImage.alt}
-                </p>
-              </div>
+              
+              {/* ANIMATE PRESENCE FOR SLIDES 
+                 initial={false} ensures valid entry animation for subsequent slides
+                 custom={direction} tells the variant which way to go
+              */}
+              <AnimatePresence initial={false} custom={direction}>
+                <motion.div
+                  key={selectedImage.id} // VITAL: Triggers animation when ID changes
+                  custom={direction}
+                  variants={slideVariants}
+                  initial="enter"
+                  animate="center"
+                  exit="exit"
+                  transition={{
+                    x: { type: "spring", stiffness: 300, damping: 30 },
+                    opacity: { duration: 0.2 },
+                  }}
+                  drag="x"
+                  dragConstraints={{ left: 0, right: 0 }}
+                  dragElastic={1}
+                  onDragEnd={(e, { offset, velocity }) => {
+                    const swipe = swipePower(offset.x, velocity.x);
+                    if (swipe < -swipeConfidenceThreshold) {
+                      navigate("next");
+                    } else if (swipe > swipeConfidenceThreshold) {
+                      navigate("prev");
+                    }
+                  }}
+                  // CSS FIX: Absolute inset-0 allows images to stack on top of each other during transition
+                  className="absolute inset-0 flex items-center justify-center p-4"
+                >
+                  <img
+                    src={selectedImage.src}
+                    alt={selectedImage.alt}
+                    className="object-contain w-auto h-auto max-w-full max-h-full shadow-2xl rounded-sm select-none pointer-events-none"
+                    draggable={false}
+                  />
+                  <div className="absolute bottom-8 left-0 w-full text-center pointer-events-none">
+                    <p className="font-mono text-white/80 text-sm tracking-widest uppercase bg-black/50 inline-block px-3 py-1 rounded-full">
+                      {selectedImage.alt}
+                    </p>
+                  </div>
+                </motion.div>
+              </AnimatePresence>
             </div>
-          </div>
-        </div>
-      )}
+            
+            <div className="absolute bottom-6 left-0 w-full text-center md:hidden pointer-events-none">
+                <p className="text-white/40 text-[10px] font-mono uppercase tracking-[0.2em] animate-pulse">
+                &larr; Swipe to Navigate &rarr;
+                </p>
+            </div>
+
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
