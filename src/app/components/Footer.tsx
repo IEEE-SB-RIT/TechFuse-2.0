@@ -153,7 +153,7 @@ export default function Footer() {
               className="group block text-center md:text-left cursor-pointer"
             >
               <p className="font-sans text-sm text-zinc-300 leading-relaxed group-hover:text-white group-hover:underline decoration-zinc-500 underline-offset-4 transition-all">
-                IEEE SBC RIT
+                IEEE SB RIT
                 <br />
                 Rajiv Gandhi Institute of Technology
                 <br />
