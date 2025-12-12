@@ -70,11 +70,15 @@ export default function Footer() {
                     
                     /* Mobile Positioning: Centered below */
                     top-12 left-1/2 -translate-x-1/2 
-                    ${mailStatus ? "h-10 w-64 opacity-100" : "h-0 w-0 opacity-0"}
+                    ${
+                      mailStatus ? "h-10 w-64 opacity-100" : "h-0 w-0 opacity-0"
+                    }
 
                     /* Desktop Positioning: To the right */
                     md:top-1/2 md:left-12 md:translate-x-0 md:-translate-y-1/2
-                    md:h-auto md:${mailStatus ? "w-64 opacity-100" : "w-0 opacity-0"}
+                    md:h-auto md:${
+                      mailStatus ? "w-64 opacity-100" : "w-0 opacity-0"
+                    }
                   `}
                 >
                   <a
@@ -112,7 +116,7 @@ export default function Footer() {
                   href="/events"
                   className="hover:text-white transition-colors"
                 >
-                  Schedule
+                  Events
                 </Link>
               </li>
               <li>
