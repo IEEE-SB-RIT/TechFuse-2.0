@@ -2,8 +2,8 @@
 
 import { useState, useEffect, useCallback } from "react";
 import { galleryImages, GalleryItem } from "@/app/lib/gallery-data";
-import SectionHeading from "../components/SectionHeading";
-import GridBackground from "../components/gridBackground";
+import SectionHeading from "@/app/components/SectionHeading";
+import GridBackground from "@/app/components/gridBackground";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function GalleryPage() {

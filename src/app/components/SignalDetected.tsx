@@ -1,21 +1,25 @@
+"use client";
+
 import { useEffect, useState } from "react";
 
-function SignalDetected({ mount }: { mount: boolean }) {
+function SignalDetected() {
   const [loaded, setLoaded] = useState(false);
+  
   useEffect(() => {
-    setTimeout(() => {
+    const timer = setTimeout(() => {
       setLoaded(true);
     }, 3000);
+    return () => clearTimeout(timer);
   }, []);
+
   return (
     <div
       className={`
         mb-8 flex items-center gap-3 px-4 py-2 rounded-full
-        border border-[#66FFFF]/30 ${
-          loaded ? "bg-[#0C143B]/80" : "bg-black"
-        } backdrop-blur-md
+        border border-[#66FFFF]/30 backdrop-blur-md
         transition-colors duration-700
-        ${mount ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}
+        animate-fade-in-up
+        ${loaded ? "bg-[#0C143B]/80" : "bg-black"}
       `}
     >
       <span className="relative flex h-2 w-2">
