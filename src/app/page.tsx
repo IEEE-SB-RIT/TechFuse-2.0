@@ -1,19 +1,11 @@
-"use client";
+
 
 import Image from "next/image";
 import Link from "next/link";
 import GridBackground from "./components/gridBackground";
-import { useEffect, useState } from "react";
 import SignalDetected from "./components/SignalDetected";
 
 export default function Home() {
-  const [mounted, setMounted] = useState(false);
-
-  // Trigger animations on load
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden">
       <GridBackground />
@@ -23,21 +15,17 @@ export default function Home() {
       ========================================= */}
       <div className="relative z-10 flex flex-col items-center text-center px-4">
         {/* Status Badge */}
-        <SignalDetected mount={mounted} />
+        <SignalDetected />
 
         {/* LOGO (With float animation) */}
-        <div
-          className={`relative mb-8 transition-all duration-1000 ${
-            mounted ? "opacity-100 scale-100" : "opacity-0 scale-90"
-          }`}
-        >
+        <div className="relative mb-8 animate-fade-in-scale">
           <div className="animate-float">
             <Image
               src="/techfuselogo.webp"
               width={600}
               height={375}
-              alt="Techfuse 2.0 Logo"
               priority
+              alt="Techfuse 2.0 Logo"
               className="drop-shadow-[0_0_35px_rgba(102,255,255,0.3)]" // Neon glow effect around logo
             />
           </div>
@@ -46,9 +34,7 @@ export default function Home() {
         {/* EVENT DATES */}
         {/* Replaced 'Saga of Signals' with stylized dates */}
         <h2
-          className={`font-mono flex items-center justify-center gap-3 text-lg md:text-2xl text-white font-semibold tracking-[0.1em] mb-12 transition-all duration-1000 delay-200 ${
-            mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-          }`}
+          className="font-mono flex items-center justify-center gap-3 text-lg md:text-2xl text-white font-semibold tracking-[0.1em] mb-12 animate-fade-in-up delay-200"
         >
           <span className="text-techFuseBlue">JAN</span> 30, 31
           <span className="text-zinc-600 mx-1">|</span>
@@ -57,9 +43,7 @@ export default function Home() {
 
         {/* CALL TO ACTION BUTTON */}
         <div
-          className={`transition-all duration-1000 delay-300 ${
-            mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-          }`}
+          className="animate-fade-in-up delay-300"
         >
           <Link
             href="/register"

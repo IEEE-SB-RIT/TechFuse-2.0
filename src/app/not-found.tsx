@@ -2,8 +2,8 @@ import Link from 'next/link';
 
 export default function NotFound() {
   return (
-    <div className="flex h-screen w-full flex-col items-center justify-center bg-tf-bg text-center">
-      <div className="animate-float">
+    <main className="flex h-screen w-full flex-col items-center justify-center bg-tf-bg text-center">
+      <div className="animate-float" aria-hidden="true">
         <h1 className="text-9xl font-bold text-tf-accent drop-shadow-[0_0_15px_rgba(102,255,255,0.5)]">
           404
         </h1>
@@ -21,6 +21,7 @@ export default function NotFound() {
         <div className="mt-8">
           <Link 
             href="/"
+            aria-label="Return to Homepage"
             className="inline-block px-8 py-3 bg-tf-accent/10 border border-tf-accent/50 text-tf-accent hover:bg-tf-accent/20 hover:text-white transition-all duration-300 rounded-lg font-medium tracking-wide uppercase text-sm backdrop-blur-sm shadow-[0_0_15px_rgba(102,255,255,0.1)] hover:shadow-[0_0_20px_rgba(102,255,255,0.3)]"
           >
             Return to Base
@@ -29,9 +30,9 @@ export default function NotFound() {
       </div>
 
       {/* Background Decor - Optional Scanline effect from globals */}
-      <div className="pointer-events-none absolute inset-0 overflow-hidden opacity-20">
+      <div className="pointer-events-none absolute inset-0 overflow-hidden opacity-20" aria-hidden="true">
         <div className="animate-scanline h-full w-full bg-gradient-to-b from-transparent via-tf-accent/10 to-transparent" />
       </div>
-    </div>
+    </main>
   );
 }
