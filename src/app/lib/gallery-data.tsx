@@ -7,7 +7,7 @@ export type GalleryItem = {
   height: number;
 };
 
-// You can replace these URLs with your own images later
+
 export const galleryImages: GalleryItem[] = [
   {
     id: 1,
