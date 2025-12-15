@@ -4,7 +4,6 @@ import { useState, useEffect, useCallback } from "react";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 import { galleryImages, GalleryItem } from "@/app/lib/gallery-data";
 import SectionHeading from "@/app/components/SectionHeading";
-import GridBackground from "@/app/components/gridBackground";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 
@@ -84,8 +83,6 @@ export default function GalleryPage() {
 
   return (
     <div className="min-h-screen bg-tf-primary pt-32 pb-20 px-6">
-      <GridBackground />
-
       {/* HEADER */}
       <div
         className={`max-w-7xl mx-auto mb-16 transition-all duration-700 ${
