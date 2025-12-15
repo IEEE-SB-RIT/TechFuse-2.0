@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import Image from "next/image";
 
 const navLinks = [
   { name: "Home", href: "/" },
@@ -41,7 +42,13 @@ const Navbar = () => {
           onClick={() => setIsOpen(false)}
           className="z-50 text-2xl font-bold tracking-tighter text-white uppercase group"
         >
-          <img src="/techfuselogo.webp" className="w-40" alt="" />
+          <Image
+            src="/techfuselogo.webp"
+            width={400}
+            height={400}
+            className="w-36"
+            alt=""
+          />
         </Link>
 
         {/* --- DESKTOP NAV --- */}

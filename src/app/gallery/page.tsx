@@ -1,10 +1,12 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
+import { X, ChevronLeft, ChevronRight } from "lucide-react";
 import { galleryImages, GalleryItem } from "@/app/lib/gallery-data";
 import SectionHeading from "@/app/components/SectionHeading";
 import GridBackground from "@/app/components/gridBackground";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 
 export default function GalleryPage() {
   const [selectedImage, setSelectedImage] = useState<GalleryItem | null>(null);
@@ -24,7 +26,7 @@ export default function GalleryPage() {
       if (!selectedImage) return;
       setDirection(newDirection === "next" ? 1 : -1);
       const currentIndex = galleryImages.findIndex(
-        (img) => img.id === selectedImage.id
+        (Image) => Image.id === selectedImage.id
       );
       const newIndex =
         newDirection === "next"
@@ -110,12 +112,14 @@ export default function GalleryPage() {
             }`}
             style={{ transitionDelay: `${index * 100}ms` }}
           >
-            <img
+            <Image
+              width={500}
+              height={500}
               src={image.src}
               alt={image.alt}
               className="w-full h-auto transition-transform duration-700 group-hover:scale-110"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+            <div className="absolute inset-0 bg-linear-to-t from-black/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
               <h3 className="font-display text-white text-xl">{image.alt}</h3>
             </div>
           </div>
@@ -129,64 +133,33 @@ export default function GalleryPage() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[100] flex items-center justify-center bg-black/95 backdrop-blur-xl touch-none"
+            className="fixed inset-0 z-100 flex items-center justify-center bg-black/95 backdrop-blur-xl touch-none"
             onClick={closeLightbox}
           >
             {/* BUTTONS */}
             <button
               onClick={closeLightbox}
-              className="absolute top-6 right-6 z-[120] p-2 bg-black/20 rounded-full text-white/70 hover:text-white"
+              className="absolute top-6 right-6 z-120 p-2 bg-black/20 rounded-full text-white/70 hover:text-white"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="32"
-                height="32"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-              >
-                <line x1="18" y1="6" x2="6" y2="18"></line>
-                <line x1="6" y1="6" x2="18" y2="18"></line>
-              </svg>
+              <X size={32} strokeWidth={2} />
             </button>
             <button
               onClick={(e) => {
                 e.stopPropagation();
                 navigate("prev");
               }}
-              className="absolute left-2 md:left-8 z-[120] p-3 bg-black/20 rounded-full text-white/70 hover:text-white"
+              className="absolute left-2 md:left-8 z-120 p-3 bg-black/20 rounded-full text-white/70 hover:text-white"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="32"
-                height="32"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-              >
-                <polyline points="15 18 9 12 15 6"></polyline>
-              </svg>
+              <ChevronLeft size={32} strokeWidth={2} />
             </button>
             <button
               onClick={(e) => {
                 e.stopPropagation();
                 navigate("next");
               }}
-              className="absolute right-2 md:right-8 z-[120] p-3 bg-black/20 rounded-full text-white/70 hover:text-white"
+              className="absolute right-2 md:right-8 z-120 p-3 bg-black/20 rounded-full text-white/70 hover:text-white"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="32"
-                height="32"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-              >
-                <polyline points="9 18 15 12 9 6"></polyline>
-              </svg>
+              <ChevronRight size={32} strokeWidth={2} />
             </button>
 
             {/* --- IMAGE CONTAINER --- */}
@@ -219,7 +192,9 @@ export default function GalleryPage() {
                   }}
                   className="absolute inset-0 flex items-center justify-center p-4"
                 >
-                  <img
+                  <Image
+                    width={1000}
+                    height={1000}
                     src={selectedImage.src}
                     alt={selectedImage.alt}
                     className="object-contain w-auto h-auto max-w-full max-h-full shadow-2xl rounded-sm select-none pointer-events-none"
