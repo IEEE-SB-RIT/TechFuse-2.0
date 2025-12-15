@@ -5,7 +5,6 @@ import eventData from "@/app/lib/eventData";
 import { useEffect, useState } from "react";
 import EventModal from "@/app/components/eventModal";
 import useLoadingAnimation from "@/hooks/loadingAnimation";
-import GridBackground from "@/app/components/gridBackground";
 import SubHeading from "@/app/components/subHeading";
 
 function Events() {
@@ -30,7 +29,7 @@ function Events() {
 
   return (
     <div className="min-h-screen pt-32 pb-20 px-4 sm:px-6 lg:px-8 overflow-x-hidden">
-      <GridBackground />
+
       {eventData.length === 0 ? (
         <div className="flex flex-col items-center justify-center h-[60vh] text-center">
           <SubHeading title={"Events Coming Soon"} />

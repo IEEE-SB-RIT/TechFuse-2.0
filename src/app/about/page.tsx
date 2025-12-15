@@ -1,40 +1,56 @@
-"use client";
+import type { Metadata } from "next";
+import AboutContent from "./AboutContent";
 
-import AboutTemplate from "@/app/components/aboutTemplate";
-import aboutData from "@/app/lib/aboutData";
-import useLoadingAnimation from "@/hooks/loadingAnimation";
-import GridBackground from "@/app/components/gridBackground";
-import SectionHeading from "@/app/components/SectionHeading";
+export const metadata: Metadata = {
+  title: "About Us | TechFuse 2.0",
+  description:
+    "Learn more about TechFuse 2.0 and the IEEE SPS SBC RIT team behind this flagship event. Discover our mission, vision, and the people driving innovation.",
+  openGraph: {
+    title: "About Us | TechFuse 2.0",
+    description:
+      "Learn more about TechFuse 2.0 and the IEEE SPS SBC RIT team behind this flagship event.",
+    url: "https://techfuse20.ieeesbrit.com/about",
+    type: "website",
+  },
+};
 
-function AboutUs() {
-  const animate = useLoadingAnimation();
+export default function AboutPage() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Event",
+    name: "TechFuse 2.0",
+    description:
+      "TechFuse 2.0 is the flagship event of IEEE SPS SBC RIT, featuring workshops, hackathons, and technical talks.",
+    startDate: "2025-01-30",
+    endDate: "2025-02-01",
+    eventStatus: "https://schema.org/EventScheduled",
+    eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
+    location: {
+      "@type": "Place",
+      name: "Rajiv Gandhi Institute of Technology",
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "Velloor",
+        addressLocality: "Kottayam",
+        postalCode: "686501",
+        addressRegion: "Kerala",
+        addressCountry: "IN",
+      },
+    },
+    organizer: {
+      "@type": "Organization",
+      name: "IEEE SPS SBC RIT",
+      url: "https://ieeesbrit.com",
+    },
+  };
+
   return (
-    <div className="pt-28 pb-20 px-4 sm:px-6 relative overflow-x-hidden">
-      <GridBackground />
-
-      <div className={`mb-12  ${animate().className}`} style={animate().style}>
-        <SectionHeading text1="About" text2="Us" />
-      </div>
-
-      <div className="flex flex-col gap-10 md:gap-16 max-w-7xl mx-auto">
-        {aboutData.map((data, index) => {
-          const animation = animate(index); // individual animation for each item
-          return (
-            <AboutTemplate
-              key={index}
-              // @ts-ignore
-              heading={data.heading}
-              src={data.src}
-              description={data.description}
-              align={index % 2 === 0 ? "flex-row" : "flex-row-reverse"}
-              animation={animation} // pass to template
-              className={data.className}
-            />
-          );
-        })}
-      </div>
-    </div>
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <AboutContent />
+    </>
   );
 }
-
-export default AboutUs;
