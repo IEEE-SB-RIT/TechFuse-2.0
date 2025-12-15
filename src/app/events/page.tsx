@@ -1,71 +1,40 @@
-"use client";
+import type { Metadata } from "next";
+import EventsContent from "./EventsContent";
 
-import EventCard from "@/app/components/eventCard";
-import eventData from "@/app/lib/eventData";
-import { useEffect, useState } from "react";
-import EventModal from "@/app/components/eventModal";
-import useLoadingAnimation from "@/hooks/loadingAnimation";
-import SubHeading from "@/app/components/subHeading";
+export const metadata: Metadata = {
+  title: "Events | TechFuse 2.0",
+  description:
+    "Discover the lineup of workshops, hackathons, and technical talks at TechFuse 2.0. Join us for an immersive learning experience.",
+  openGraph: {
+    title: "Events | TechFuse 2.0",
+    description:
+      "Discover the lineup of workshops, hackathons, and technical talks at TechFuse 2.0.",
+    url: "https://techfuse20.ieeesbrit.com/events",
+    type: "website",
+  },
+};
 
-function Events() {
-  // @ts-ignore
-  const [selectedEvent, setSelectedEvent] = useState<EventData | null>(null);
-  // const [clicked,isClicked] =useState(false);
-  // const [open,isOpen] =useState(false);
-
-  const animate = useLoadingAnimation();
-
-  useEffect(() => {
-    if (selectedEvent) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "auto";
-    }
-
-    return () => {
-      document.body.style.overflow = "auto";
-    };
-  }, [selectedEvent]);
+export default function EventsPage() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "EventSeries",
+    name: "TechFuse 2.0 Events",
+    description: "A series of workshops and hackathons.",
+    url: "https://techfuse20.ieeesbrit.com/events",
+    organizer: {
+      "@type": "Organization",
+      name: "IEEE SPS SBC RIT",
+      url: "https://ieeesbrit.com",
+    },
+  };
 
   return (
-    <div className="min-h-screen pt-32 pb-20 px-4 sm:px-6 lg:px-8 overflow-x-hidden">
-
-      {eventData.length === 0 ? (
-        <div className="flex flex-col items-center justify-center h-[60vh] text-center">
-          <SubHeading title={"Events Coming Soon"} />
-          <p className="mt-3 text-gray-500 max-w-md">
-            Our featured events will be live soon. Stay tuned!
-          </p>
-        </div>
-      ) : (
-        <>
-          <div className="flex flex-wrap justify-center gap-10 md:gap-12 max-w-7xl mx-auto">
-            {eventData.map((event, index) => (
-              <div key={event.id} {...animate(index)}>
-                <EventCard
-                  data={event}
-                  onClick={() => setSelectedEvent(event)}
-                />
-              </div>
-            ))}
-          </div>
-        </>
-      )}
-      {selectedEvent && (
-        <EventModal
-          data={{
-            src: selectedEvent.src,
-            name: selectedEvent.eventName,
-            description: selectedEvent.eventDescription,
-            free: selectedEvent.form, //if form is true-> not ticket ,free
-            speakers: selectedEvent.speakers,
-            // price:selectedEvent.price
-          }}
-          onClose={() => setSelectedEvent(null)}
-        />
-      )}
-    </div>
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <EventsContent />
+    </>
   );
 }
-
-export default Events;
