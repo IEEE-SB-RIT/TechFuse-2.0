@@ -114,6 +114,7 @@ export default function GalleryContent() {
               height={500}
               src={image.src}
               alt={image.alt}
+              priority={index < 4}
               className="w-full h-auto transition-transform duration-700 group-hover:scale-110"
             />
             <div className="absolute inset-0 bg-linear-to-t from-black/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
