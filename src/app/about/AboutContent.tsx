@@ -9,7 +9,7 @@ function AboutContent() {
   const animate = useLoadingAnimation();
   return (
     <div className="pt-28 pb-20 px-4 sm:px-6 relative overflow-x-hidden">
-      <div className={`mb-12  ${animate().className}`} style={animate().style}>
+      <div className={`max-w-7xl mx-auto mb-12 transition-all duration-700  ${animate().className}`} style={animate().style}>
         <SectionHeading text1="About" text2="Us" />
       </div>
 
