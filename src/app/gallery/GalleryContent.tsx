@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
+
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 import { galleryImages, GalleryItem } from "@/app/lib/gallery-data";
 import SectionHeading from "@/app/components/SectionHeading";
