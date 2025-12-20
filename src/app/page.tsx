@@ -38,12 +38,12 @@ export default function Home() {
         {/* CALL TO ACTION BUTTON */}
         <div className="animate-fade-in-up delay-300">
           <Link
-            href="/register"
+            href="https://www.yepdesk.com/techfuse1"
             className="group relative inline-flex items-center justify-center px-7 py-4 font-bold text-white transition-all duration-200 bg-transparent rounded-2xl border border-[#66FFFF] hover:bg-[#66FFFF] hover:text-[#0C143B] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#66FFFF]"
           >
             <span className="absolute inset-0 w-full h-full -mt-1 rounded-lg opacity-30 bg-linear-to-b from-transparent via-transparent to-gray-700"></span>
             <span className="relative text-sm tracking-[0.2em] uppercase">
-              Grab your tickets
+              Early Bird Tickets
             </span>
             <svg
               className="w-4 h-4 ml-2 relative group-hover:translate-x-1 transition-transform"
