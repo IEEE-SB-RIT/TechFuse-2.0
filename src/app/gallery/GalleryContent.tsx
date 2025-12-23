@@ -13,7 +13,6 @@ export default function GalleryContent() {
   const [isLoaded, setIsLoaded] = useState(false);
   const [direction, setDirection] = useState(0);
 
-  // --- HANDLERS ---
   const openLightbox = (image: GalleryItem) => {
     setSelectedImage(image);
     setDirection(0);
