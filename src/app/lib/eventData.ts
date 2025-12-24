@@ -28,30 +28,33 @@ interface EventData {
 
     price?: string[];
     form?: boolean;
+    free?: boolean;
     formLink?: string;
 
     src: string;
 }
 const eventData: EventData[] = [
-    // {
-    //     id: 6,
-    //     title: "",
-    //     eventName: "RoboLaunch",
-    //     type: "Workshop",
-    //     venue: "Rit Kottayam",
-    //     date: "2025-09-26 to 2025-09-28",
-    //     salutaion: "Powering a Greener Tomorrow",
-    //     speakers: [
-    //         { name: "Abhijith Benny", description: "Hardware Design Engineer" },
-    //         { name: "Richu Bini and Rishad Alayan", description: "Embedded Software Design Engineer" },
-    //     ],
-    //     src: "/coming_soon.webp",
-    //     location:"Rit Kottayam",
-    //     eventDescription:"A gathering of developers, innovators, and tech enthusiasts featuring keynotes, workshops, and networking."
-    //
-    //
-    //
-    // },
+    {
+        id: 7,
+        title: "Early Bird Registrations Now Live",
+        eventName: "TechFuse 2.0",
+        type: "Tickets",
+        venue: "RIT Kottayam",
+        date: "30 Jan – 1 Feb 2026",
+        salutaion: "Explore the World of Signals and Circuits",
+        eventDescription: "IEEE SPS SBC RIT, in collaboration with IEEE SPS Kerala Chapter, presents TechFuse 2.0 — a three-day technical extravaganza focused on signals and circuits. Early bird registrations are now open.",
+        speakers: [],
+        location: "RIT Kottayam",
+        price: [
+            "IEEE SPS Members – ₹699",
+            "IEEE Members – ₹899",
+            "Non-IEEE Members – ₹1099"
+        ],
+        free: false,
+        formLink: "https://www.yepdesk.com/techfuse1",
+        src: "/techFuseEvents/events0.webp"
+    }
+
     // {
     //     id: 7,
     //     title: "",
