@@ -3,12 +3,12 @@ from PIL import Image
 import os
 
 source_folder = "E:\\To_Webp"
-dest_path="C:\\Users\\farza\\WebstormProjects\\techfuse-2\\public\\techFuseGallery"
+dest_path="C:\\Users\\farza\\WebstormProjects\\techfuse-2\\public\\techFuseEvents"
 web_quality = 85
 
 
 os.makedirs(dest_path, exist_ok=True)
-base_name = "glimpses"
+base_name = "events"
 
 for i, filename in enumerate(sorted(os.listdir(source_folder))):
     if filename.lower().endswith((".png", ".jpg", ".jpeg")):
