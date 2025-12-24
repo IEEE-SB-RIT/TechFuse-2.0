@@ -39,6 +39,8 @@ export default function Home() {
         <div className="animate-fade-in-up delay-300">
           <Link
             href="https://www.yepdesk.com/techfuse1"
+            target="_blank"
+            rel="noopener noreferrer"
             className="group relative inline-flex items-center justify-center px-7 py-4 font-bold text-white transition-all duration-200 bg-transparent rounded-2xl border border-[#66FFFF] hover:bg-[#66FFFF] hover:text-[#0C143B] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#66FFFF]"
           >
             <span className="absolute inset-0 w-full h-full -mt-1 rounded-lg opacity-30 bg-linear-to-b from-transparent via-transparent to-gray-700"></span>
