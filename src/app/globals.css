@@ -14,6 +14,7 @@
   /* You can also map colors here if you want usage like "text-tf-accent" */
   --color-tf-bg: #0c143b;
   --color-tf-accent: #66ffff;
+  --color-techFuseBlue: #03a4b7;
 }
 
 /* 2. ROOT VARIABLES (For usage outside Tailwind utilities) */
@@ -100,10 +101,49 @@ body {
 .bg-radar-grid {
   background-size: 50px 50px;
   background-image: linear-gradient(
-      to right,
+      to left,
       rgba(255, 255, 255, 0.05) 1px,
       transparent 1px
     ),
     linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
   mask-image: radial-gradient(circle at center, black 40%, transparent 80%);
+}
+
+/* 7. ENTRANCE ANIMATIONS */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(2rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.animate-fade-in-scale {
+  animation: fadeInScale 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.delay-200 {
+  animation-delay: 200ms;
+}
+
+.delay-300 {
+  animation-delay: 300ms;
 }

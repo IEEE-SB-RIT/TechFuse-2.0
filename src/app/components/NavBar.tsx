@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import Image from "next/image";
 
 const navLinks = [
   { name: "Home", href: "/" },
@@ -41,7 +42,13 @@ const Navbar = () => {
           onClick={() => setIsOpen(false)}
           className="z-50 text-2xl font-bold tracking-tighter text-white uppercase group"
         >
-          <img src="/techfuselogo.webp" className="w-40" alt="" />
+          <Image
+            src="/techfuselogo.webp"
+            width={400}
+            height={400}
+            className="w-36"
+            alt=""
+          />
         </Link>
 
         {/* --- DESKTOP NAV --- */}
@@ -58,10 +65,10 @@ const Navbar = () => {
             </Link>
           ))}
           <Link
-            href="/register"
+            href="https://www.yepdesk.com/techfuse1"
             className="px-6 py-2 bg-white text-black text-xs font-bold tracking-widest uppercase rounded-full hover:bg-cyan-400 hover:scale-105 transition-all duration-300 shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:shadow-[0_0_20px_rgba(34,211,238,0.6)]"
           >
-            Register
+            Get Tickets!
           </Link>
         </nav>
 
