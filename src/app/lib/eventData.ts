@@ -51,7 +51,7 @@ const eventData: EventData[] = [
             "Non-IEEE Members – ₹1099"
         ],
         free: false,
-        formLink: "https://www.yepdesk.com/techfuse1",
+        // formLink: "https://www.yepdesk.com/techfuse1",
         src: "/techFuseEvents/events0.webp"
     }
 
