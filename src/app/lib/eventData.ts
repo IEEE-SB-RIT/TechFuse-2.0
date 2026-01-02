@@ -36,7 +36,7 @@ interface EventData {
 const eventData: EventData[] = [
     {
         id: 7,
-        title: "Early Bird Registrations Now Live",
+        title: "Registrations Now Open",
         eventName: "TechFuse 2.0",
         type: "Tickets",
         venue: "RIT Kottayam",
@@ -46,13 +46,13 @@ const eventData: EventData[] = [
         speakers: [],
         location: "RIT Kottayam",
         price: [
-            "IEEE SPS Members – ₹699",
-            "IEEE Members – ₹899",
-            "Non-IEEE Members – ₹1099"
+            "IEEE SPS Members – ₹799",
+            "IEEE Members – ₹999",
+            "Non-IEEE Members – ₹1199"
         ],
         free: false,
         // formLink: "https://www.yepdesk.com/techfuse1",
-        src: "/techFuseEvents/events0.webp"
+        src: "/techFuseEvents/events1.webp"
     }
 
     // {
