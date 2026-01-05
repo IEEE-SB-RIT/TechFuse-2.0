@@ -62,6 +62,7 @@ function EventsContent() {
             free: selectedEvent.form, //if form is true-> not ticket ,free
             speakers: selectedEvent.speakers,
             // price:selectedEvent.price
+            formLink: selectedEvent.formLink,
           }}
           onClose={() => setSelectedEvent(null)}
         />

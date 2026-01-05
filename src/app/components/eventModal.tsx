@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Button from "@/app/components/button";
 import { X } from "lucide-react";
+import eventData from "@/app/lib/eventData";
 
 interface Speaker {
   name: string;
@@ -15,6 +16,7 @@ interface Modal {
   free?: boolean;
   speakers?: Speaker[];
   price?: string[];
+  formLink?: string;
 }
 
 interface EventModalProps {
@@ -114,7 +116,7 @@ export default function EventModal({ data, onClose }: EventModalProps) {
           )}
 
           {data.free ? (
-            <Button text="Register Now" link="$" />
+              <Button text="Register Now" link={data.formLink} isExternalLink={true}/>
           ) : (
             <>
               {/*<div className="flex flex-col bg-red-500">*/}
