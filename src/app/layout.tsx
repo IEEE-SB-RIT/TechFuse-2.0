@@ -4,6 +4,7 @@ import "./globals.css";
 import Footer from "@/app/components/Footer";
 import Navbar from "@/app/components/NavBar";
 import GridBackground from "./components/gridBackground";
+import { Analytics } from "@vercel/analytics/next";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://techfuse20.ieeesbrit.com"),
@@ -61,6 +62,7 @@ export default function RootLayout({
         <GridBackground />
         <Navbar />
         <main>{children}</main>
+        <Analytics />
         <Footer />
       </body>
     </html>
