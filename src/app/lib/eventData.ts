@@ -52,31 +52,33 @@ const eventData: EventData[] = [
         ],
         free: false,
         // formLink: "https://www.yepdesk.com/techfuse1",
-        src: "/techFuseEvents/events1.webp"
-    }
+        src: "/techFuseEvents/events01.webp"
+    },
 
-    // {
-    //     id: 7,
-    //     title: "",
-    //     eventName: "ROS Unleashed",
-    //     type: "Workshop",
-    //     venue: "Rit Kottayam",
-    //     date: "2025-09-26 to 2025-09-28",
-    //     salutaion: "Powering a Greener Tomorrow",
-    //     speakers: [
-    //         { name: "Nivan Nelson", description: "ROS Trainer" },
-    //         { name: "Muhammed Shibil C", description: "Robotics Trainer" },
-    //     ],
-    //     price: [
-    //         "IEEE RAS Members - 1000",
-    //         "IEEE Members - 1200",
-    //         "Non-IEEE Members - 1450",
-    //     ],
-    //     src: "/coming_soon.webp",
-    //     location:"Rit Kottayam",
-    //     eventDescription:"A gathering of developers, innovators, and tech enthusiasts featuring keynotes, workshops, and networking."
-    //
-    // },
+    {
+        id: 8,
+        title: "Pre-Event | Registrations Open",
+        eventName: "E-Football Showdown",
+        type: "Gaming",
+        venue: "RIT Kottayam",
+        date: "8 January 2026",
+        salutaion: "Kick Off the TechFuse 2.0 Excitement",
+        eventDescription: "As a pre-event of TechFuse 2.0, IEEE SPS SBC RIT in collaboration with IEEE SPS Kerala Chapter and RESPAWN – the Gaming Club of RIT presents an electrifying E-Football Showdown. Experience fast-paced gameplay, intense matches, and fierce competition as players battle it out for glory.",
+        // partners: [
+        //     {
+        //         name: "RESPAWN – The Gaming Club of RIT"
+        //     }
+        // ],
+        location: "RIT Kottayam",
+        price: [
+            "Registration Fee – ₹10",
+            "Prize Pool – ₹500"
+        ],
+        form: true,
+        free: false,
+        formLink: "https://tinyurl.com/EfootballTechfuse2",
+        src: "/techFuseEvents/events02.webp"
+    }
     // {
     //     id: 8,
     //     title: "event 7",
