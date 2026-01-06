@@ -56,6 +56,36 @@ const eventData: EventData[] = [
     },
 
     {
+        id: 9,
+        title: "Talk Session | Registrations Open",
+        eventName: "Cyberworld Exposed",
+        type: "Talk Session",
+        venue: "RIT Kottayam",
+        date: "30 Jan – 1 Feb 2026",
+        salutaion: "Explore the Hidden Side of Cybersecurity",
+        eventDescription: "Cyberworld Exposed offers a beginner-to-pro cybersecurity roadmap. The session covers ethical hacking, phishing techniques, RAT attacks, and hardware hacking basics, followed by an exclusive live Q&A with industry experts.",
+        speakers: [
+            {
+                name: "Mohammed Fizal",
+                description: "Cyber Security Trainer"
+            },
+            {
+                name: "Noorul Ameen N",
+                description: "Cyber Security Trainer"
+            }
+        ],
+        location: "RIT Kottayam",
+        price: [
+            "IEEE SPS Members – ₹799",
+            "IEEE Members – ₹999",
+            "Non-IEEE Members – ₹1199"
+        ],
+        free: false,
+        form: true,
+        formLink: "https://www.yepdesk.com/techfuse1",
+        src: "/techFuseEvents/events03.webp"
+    },
+    {
         id: 8,
         title: "Pre-Event | Registrations Open",
         eventName: "E-Football Showdown",
