@@ -35,7 +35,7 @@ interface EventData {
 }
 const eventData: EventData[] = [
     {
-        id: 7,
+        id: 1,
         title: "Registrations Now Open",
         eventName: "TechFuse 2.0",
         type: "Tickets",
@@ -56,7 +56,7 @@ const eventData: EventData[] = [
     },
 
     {
-        id: 9,
+        id: 2,
         title: "Talk Session | Registrations Open",
         eventName: "Cyberworld Exposed",
         type: "Talk Session",
@@ -86,7 +86,7 @@ const eventData: EventData[] = [
         src: "/techFuseEvents/events03.webp"
     },
     {
-        id: 8,
+        id: 3,
         title: "Pre-Event | Registrations Open",
         eventName: "E-Football Showdown",
         type: "Gaming",
@@ -108,7 +108,26 @@ const eventData: EventData[] = [
         free: false,
         formLink: "https://tinyurl.com/EfootballTechfuse2",
         src: "/techFuseEvents/events02.webp"
+    },
+    {
+        id: 4,
+        title: "Registrations Open",
+        eventName: "CrossSignal",
+        type: "Quiz / Crossword",
+        venue: "RIT Kottayam",
+        date: "12 January 2026",
+        salutaion: "Test Your Logic and Signal Skills",
+        eventDescription: "CrossSignal is an engaging crossword-style challenge designed to test your analytical thinking and signal-processing knowledge. Compete with peers, solve clues, and win exciting prizes.",
+        location: "RIT Kottayam",
+        price: [
+            "Prize Pool – ₹300"
+        ],
+        form: true,
+        free: true,
+        formLink: "https://tinyurl.com/crosswordTechfuse",
+        src: "/techFuseEvents/events04.webp"
     }
+
     // {
     //     id: 8,
     //     title: "event 7",
