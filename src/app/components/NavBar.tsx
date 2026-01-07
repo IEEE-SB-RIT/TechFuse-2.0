@@ -135,7 +135,9 @@ const Navbar = () => {
                     ))}
 
                     <Link
-                        href="/register"
+                        href="https://www.yepdesk.com/techfuse1"
+                        target="_blank"
+                        rel="noopener noreferrer"
                         onClick={() => setIsOpen(false)}
                         className={`mt-6 px-12 py-4 bg-gradient-to-r from-cyan-400 to-cyan-500 text-black text-lg font-bold tracking-widest uppercase rounded-full shadow-[0_0_30px_rgba(34,211,238,0.4)] transition-all duration-500 ${
                             isOpen ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
