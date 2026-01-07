@@ -18,6 +18,7 @@ export default function Home() {
           <div className="animate-float">
             <Image
               src="/techfuselogo.webp"
+              loading="eager"
               width={600}
               height={375}
               priority
