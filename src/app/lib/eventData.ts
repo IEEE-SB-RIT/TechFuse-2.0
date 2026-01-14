@@ -54,6 +54,26 @@ const eventData: EventData[] = [
         // formLink: "https://www.yepdesk.com/techfuse1",
         src: "/techFuseEvents/events01.webp"
     },
+    {
+        id: 5,
+        title: "Talk Session | Registrations Open",
+        eventName: "Getting to Know IEEE",
+        type: "Talk Session",
+        venue: "RIT Kottayam",
+        date: "30 Jan – 1 Feb 2026",
+        salutaion: "Getting to Know IEEE",
+        eventDescription:
+            "Discover how IEEE can open global opportunities, build leadership skills, and connect you with the international tech community.",
+        speakers: [
+            {
+                name: "Mrudul John Mathews",
+                description: "WebMaster, IEEE Sensors Council Kerala Chapter"
+            }
+        ],
+        location: "RIT Kottayam",
+        free: true,
+        src: "/techFuseEvents/events05.webp"
+    },
 
     {
         id: 2,
@@ -85,6 +105,7 @@ const eventData: EventData[] = [
         formLink: "https://www.yepdesk.com/techfuse1",
         src: "/techFuseEvents/events03.webp"
     },
+
     {
         id: 3,
         title: "Pre-Event | Registrations Open",
@@ -126,7 +147,8 @@ const eventData: EventData[] = [
         free: true,
         formLink: "https://tinyurl.com/crosswordTechfuse",
         src: "/techFuseEvents/events04.webp"
-    }
+    },
+
 
     // {
     //     id: 8,
