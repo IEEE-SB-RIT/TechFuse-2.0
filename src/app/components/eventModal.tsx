@@ -128,7 +128,7 @@ export default function EventModal({ data, onClose }: EventModalProps) {
               {/*        ))*/}
               {/*    )}*/}
               {/*</div>*/}
-              <Button text="Get Tickets" link="https://www.yepdesk.com/techfuse1" isExternalLink={true} />
+              <Button text="Registeration Closed" link="#" isExternalLink={false} />
             </>
           )}
         </div>

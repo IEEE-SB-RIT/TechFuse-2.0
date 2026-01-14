@@ -65,12 +65,12 @@ const Navbar = () => {
                         </Link>
                     ))}
                     <Link
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        href="https://www.yepdesk.com/techfuse1"
-                        className="px-6 py-2 bg-white text-black text-xs font-bold tracking-widest uppercase rounded-full hover:bg-cyan-400 hover:scale-105 transition-all duration-300 shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:shadow-[0_0_20px_rgba(34,211,238,0.6)]"
+                        // target="_blank"
+                        // rel="noopener noreferrer"
+                        href="#"
+                        className="px-6 py-2 cursor-none bg-white text-black text-xs font-bold tracking-widest uppercase rounded-full hover:bg-cyan-400 hover:scale-105 transition-all duration-300 shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:shadow-[0_0_20px_rgba(34,211,238,0.6)]"
                     >
-                        Get Tickets!
+                        Tickets Closed
                     </Link>
                 </nav>
 
