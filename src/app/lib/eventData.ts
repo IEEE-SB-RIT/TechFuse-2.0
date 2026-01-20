@@ -43,7 +43,7 @@ const eventData: EventData[] = [
         date: "30 Jan – 1 Feb 2026",
         salutaion: "The automation of work is the defining story of our time.",
         eventDescription:
-            "TechFuse 2.0 organized by IEEE SPS SBC RIT, in collaboration with IEEE SPS Kerala Chapter, presents an in-depth exploration of next-generation connected systems through its first workshop on Edge AI & IoT.",
+            " Workshop on Edge AI & IoT.",
         speakers: [
             {
                 name: "Abhijith Benny",
