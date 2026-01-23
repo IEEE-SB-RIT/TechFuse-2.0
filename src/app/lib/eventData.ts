@@ -35,6 +35,46 @@ interface EventData {
 }
 const eventData: EventData[] = [
     {
+        id: 8,
+        title: "Workshop | Registrations Open",
+        eventName: "Virtual Reality",
+        type: "Workshop",
+        venue: "RIT Kottayam",
+        date: "30 Jan – 1 Feb 2026",
+        salutaion: "Unlock the world of interactive and immersive digital environments with Virtual Reality.",
+        eventDescription:
+            "Workshop on Virtual Reality (VR) focusing on immersive and interactive digital environments.",
+        speakers: [
+            {
+                name: "Muhammad Ajas A S",
+                description: "AR/VR Trainer, ASAP Kerala"
+            }
+        ],
+        location: "RIT Kottayam",
+        free: false,
+        src: "/techFuseEvents/events08.webp"
+    },
+    {
+        id: 7,
+        title: "Workshop | Registrations Open",
+        eventName: "Introduction to ADAS",
+        type: "Workshop",
+        venue: "RIT Kottayam",
+        date: "30 Jan – 1 Feb 2026",
+        salutaion: "Step into Advanced Driver Assistance Systems (ADAS), redefining intelligent driving!",
+        eventDescription:
+            "Introduction to Advanced Driver Assistance Systems (ADAS) workshop.",
+        speakers: [
+            {
+                name: "Vyasan J",
+                description: "Solopreneur, Angel Investor, Founder: TransEduverse, DataiX3 | Freelance Corporate and Academic Data Engineering Technical Trainer"
+            }
+        ],
+        location: "RIT Kottayam",
+        free: false,
+        src: "/techFuseEvents/events07.webp"
+    },
+    {
         id: 6,
         title: "Workshop | Registrations Open",
         eventName: "Edge AI & IoT",
