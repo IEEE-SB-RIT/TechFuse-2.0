@@ -99,6 +99,27 @@ const eventData: EventData[] = [
         src: "/techFuseEvents/events06.webp"
     },
     {
+        id: 9,
+        title: "Cultural Night",
+        eventName: "TechFuse 2.0 – Cultural Night",
+        type: "Cultural",
+        venue: "RIT Kottayam",
+        date: "30 January 2026",
+        salutaion: "The Saga of Signals comes alive!",
+        eventDescription:
+            "Get ready for a night where music meets energy and signals turn into sound. TechFuse 2.0 Cultural Night, organised by IEEE SPS SBC RIT in collaboration with IEEE SPS Kerala Chapter, features RITM performing LIVE on stage for an electrifying experience.",
+        culturals: true,
+        culturalDetails: [
+            {
+                name: "RITM",
+                description: "Live band performance"
+            }
+        ],
+        location: "RIT Kottayam",
+        free: true,
+        src: "/techFuseEvents/events09.webp"
+    },
+    {
         id: 5,
         title: "Talk Session | Registrations Open",
         eventName: "Getting to Know IEEE",
